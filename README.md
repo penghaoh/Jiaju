@@ -1,2 +1,2 @@
 # Jiaju
-this is a furniture demo
+hello,friends!this is a furniture demo
