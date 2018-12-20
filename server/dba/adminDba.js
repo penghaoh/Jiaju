@@ -6,7 +6,7 @@ function checkAdminLogin(name,pwd,cb){
 		if(err){
 			throw error
 		}else {
-			var sql = "select name,pwd from user where name = ? and pwd = ?";
+			var sql = "select name,pwd from admin where name = ? and pwd = ?";
 			connection.query(sql,[name,pwd],function(qerr,result){
 				connection.release();
 				console.log('---------result',result);
