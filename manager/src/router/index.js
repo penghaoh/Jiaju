@@ -43,6 +43,20 @@ export default new Router({
 							path: '/desk',
 							name: 'Family',
 							component: Family,
+						},
+						{
+							path: '/lamp',
+							name: 'Family',
+							component: Family,
+						},{
+							path: '/tableware',
+							name: 'Family',
+							component: Family,
+						},
+						{
+							path: '/decoration',
+							name: 'Family',
+							component: Family,
 						}
 					]
 				},

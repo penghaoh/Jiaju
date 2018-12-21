@@ -77,7 +77,14 @@ function adminlogin(req,res){
 		})
 	}	
 // exports.toLogin = toLogin;
-
+//将总条数返回
+	function getTotalnum(req,res){
+		console.log("总条数");
+		adminDba.getTotalnum((num)=>{
+			res.json(num)
+		})
+	}
+	exports.getTotalnum = getTotalnum;
 exports.selectpro = selectpro;
 exports.usersele = usersele;
 exports.adminlogin = adminlogin;
