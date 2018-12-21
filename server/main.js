@@ -30,6 +30,9 @@ app.get('/*',function(req,res){
 	}else if(pathname == '/usersele'){
 		//用户表查询
 		adminConn.usersele(req,res)
+	}else if(pathname == '/selectpro'){
+		//查询类型商品根据typeid, 请求后通过?typeid = 传递
+		adminConn.selectpro(req,res)
 	}
 })
 app.post('/*',function(req,res){
@@ -41,24 +44,6 @@ app.post('/*',function(req,res){
 	}else if(pathname == "/selectAll"){
 		//查询所有商品
 		adminConn.productsel(req,res);
-	}else if(pathname == '/sofa'){
-		//沙发
-		adminConn.selectsofa(req,res)
-	}else if(pathname == '/yideng'){
-		//椅凳
-		adminConn.selectyideng(req,res)
-	}else if(pathname == '/zuoji'){
-		//桌几
-		adminConn.selectzuoji(req,res)
-	}else if(pathname == '/dengju'){
-		//灯具
-		adminConn.selectdengju(req,res)
-	}else if(pathname == '/canju'){
-		//餐具
-		adminConn.selectcanju(req,res)
-	}else if(pathname == '/zshi'){
-		//装饰
-		adminConn.selectzshi(req,res)
 	}else if(pathname == '/showtype'){
 		//查询类型 protyoe表
 		adminConn.showtype(req,res)

@@ -31,90 +31,25 @@ function productquery (cb){
 		}
 	})
 }
-//沙发
-function sofaquery(cb){
+//根据typeid查询
+function productquery(typeid){
 	dbutil.pool.getConnection(function(err,connection){
 		if(err){
 			console.log(err)
 		}else{
-			var sql = "select product.name,price from product inner join protype on type_id = typeid where typeid = 1 ";
-			connection.query(sql,(qerr,result)=>{
+			var sql = "select product.name,price from product inner join protype on type_id = typeid where typeid = ?";
+			connection.query(sql,[typeid],(qerr,result)=>{
 				connection.release();
 				cb(result)
 			})
 		}
 	})
 }
-//椅凳
-function yidengquery(cb){
-	dbutil.pool.getConnection(function(err,connection){
-		if(err){
-			console.log(err)
-		}else{
-			var sql = "select product.name,price from product inner join protype on type_id = typeid where typeid = 2 ";
-			connection.query(sql,(qerr,result)=>{
-				connection.release();
-				cb(result)
-			})
-		}
-	})
-}
-//桌几
-function zuojiquery(cb){
-	dbutil.pool.getConnection(function(err,connection){
-		if(err){
-			console.log(err)
-		}else{
-			var sql = "select product.name,price from product inner join protype on type_id = typeid where typeid = 2 ";
-			connection.query(sql,(qerr,result)=>{
-				connection.release();
-				cb(result)
-			})
-		}
-	})
-}
-//灯具
-function dengjuquery(cb){
-	dbutil.pool.getConnection(function(err,connection){
-		if(err){
-			console.log(err)
-		}else{
-			var sql = "select product.name,price from product inner join protype on type_id = typeid where typeid = 2 ";
-			connection.query(sql,(qerr,result)=>{
-				connection.release();
-				cb(result)
-			})
-		}
-	})
-}
-//餐具
-function canjuquery(cb){
-	dbutil.pool.getConnection(function(err,connection){
-		if(err){
-			console.log(err)
-		}else{
-			var sql = "select product.name,price from product inner join protype on type_id = typeid where typeid = 2 ";
-			connection.query(sql,(qerr,result)=>{
-				connection.release();
-				cb(result)
-			})
-		}
-	})
-}
-//装饰
-function zshiquery(cb){
-	dbutil.pool.getConnection(function(err,connection){
-		if(err){
-			console.log(err)
-		}else{
-			var sql = "select product.name,price from product inner join protype on type_id = typeid where typeid = 2 ";
-			connection.query(sql,(qerr,result)=>{
-				connection.release();
-				cb(result)
-			})
-		}
-	})
-}
+
+
+
+
+
 //商品删除
 function productdele(num){
 	dbutil.pool.getConnection(function(err,connection){
@@ -143,6 +78,7 @@ function producttype(){
 		}
 	})
 }
+//用户表查询
 function queryuser(){
 	dbutil.pool.getConnection(function(err,connection){
 		if(err){
@@ -156,6 +92,7 @@ function queryuser(){
 		}
 	})
 }
+//增加商品
 function addpro(name,price,desc,imgurl,origin,brand,typeid){
 	dbutil.pool.getConnection(function(err,connection){
 		if(err){
@@ -169,16 +106,11 @@ function addpro(name,price,desc,imgurl,origin,brand,typeid){
 		}
 	})
 }
+exports.productquery = productquery;
 exports.addpro = addpro;
 exports.queryuser = queryuser;
 exports.productquery = productquery;
-exports.sofaquery = sofaquery;
 
-exports.yidengquery = yidengquery;
-exports.zuojiquery = zuojiquery;
-exports.dengjuquery = dengjuquery;
-exports.canjuquery = canjuquery;
-exports.zshiquery = zshiquery;
 exports.checkAdminLogin=checkAdminLogin;
 exports.productdele = productdele;
 

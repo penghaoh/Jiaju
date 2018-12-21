@@ -53,42 +53,12 @@ function adminlogin(req,res){
 			res.json(result)
 		})
 	}
-//沙发
-	function selectsofa(req,res){
-		adminDba.sofaquery((result)=>{
-			res.json(result)
-		})
+//根据typeid查询商品
+	function selectpro(req,res){
+		var typeid = req.query.typeid;
+		adminDba.productquery(typeid)
 	}
-//椅凳
-	function selectyideng(req,res){
-		adminDba.yidengquery((result)=>{
-			res.json(result)
-		})
-	}
-	//桌几
-	function selectzuoji(req,res){
-		adminDba.zuojiquery((result)=>{
-			res.json(result)
-		})
-	}
-	//灯具
-	function selectdengju(req,res){
-		adminDba.dengjuquery((result)=>{
-			res.json(result)
-		})
-	}
-	//餐具
-	function selectcanju(req,res){
-		adminDba.canjuquery((result)=>{
-			res.json(result)
-		})
-	}
-	//装饰
-	function selectzshi(req,res){
-		adminDba.zshiquery((result)=>{
-			res.json(result)
-		})
-	}
+
 //删除商品
 	function deleproduct(req,res){
 		var num = req.query.id;
@@ -107,16 +77,13 @@ function adminlogin(req,res){
 		})
 	}	
 // exports.toLogin = toLogin;
+
+exports.selectpro = selectpro;
 exports.usersele = usersele;
 exports.adminlogin = adminlogin;
 exports.login = login;
 exports.productsel = productsel;
-exports.selectsofa = selectsofa;
-exports.selectyideng = selectyideng;
-exports.selectzuoji = selectzuoji;
-exports.selectdengju = selectdengju;
-exports.selectcanju = selectcanju;
-exports.selectzshi = selectzshi;
+
 exports.deleproduct = deleproduct;
 exports.showtype = showtype;
 exports.addprod = addprod;
