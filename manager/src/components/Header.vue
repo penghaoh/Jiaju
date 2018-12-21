@@ -1,5 +1,6 @@
 <template>
 	<div id="top">
+		<p>{{name}}</p>
 	</div>
 </template>
 
@@ -8,7 +9,7 @@
 		name: 'Header',
 		data() {
 			return {
-				
+				name : this.$route.params.name
 			};
 		}
 	}

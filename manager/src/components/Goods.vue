@@ -27,13 +27,19 @@
 <style>
 	.nav {
 		width: 100%;
-		height: 5%;
-		background-color: #0000FF;
+		height: 8%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
-	
+	.nav a {
+		text-decoration: none;
+		font-size: 18px;
+		margin: 0 10px;
+	}
 	.content {
 		width: 100%;
-		height: 95%;
+		height: 92%;
 		background-color: red;
 	}
 </style>
