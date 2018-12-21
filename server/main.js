@@ -27,6 +27,9 @@ app.get('/*',function(req,res){
 	}else if(pathname == '/dele'){
 		//删除商品
 		adminConn.deleproduct(req,res)
+	}else if(pathname == '/usersele'){
+		//用户表查询
+		adminConn.usersele(req,res)
 	}
 })
 app.post('/*',function(req,res){
@@ -56,6 +59,12 @@ app.post('/*',function(req,res){
 	}else if(pathname == '/zshi'){
 		//装饰
 		adminConn.selectzshi(req,res)
+	}else if(pathname == '/showtype'){
+		//查询类型 protyoe表
+		adminConn.showtype(req,res)
+	}else if(pathname == '/add'){
+		//增加商品
+		adminConn.addprod(req,res)
 	}
 })
 app.use(express.static("public"));

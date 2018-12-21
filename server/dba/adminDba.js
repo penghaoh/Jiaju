@@ -129,6 +129,48 @@ function productdele(num){
 		}
 	})
 }
+//查询类型
+function producttype(){
+	dbutil.pool.getConnection(function(err,connection){
+		if(err){
+			console.log(err)
+		}else{
+			var sql = "select * from protype";
+			connection.query(sql,(qerr,result)=>{
+				connection.release();
+				cb(result)
+			})
+		}
+	})
+}
+function queryuser(){
+	dbutil.pool.getConnection(function(err,connection){
+		if(err){
+			console.log(err)
+		}else{
+			var sql = "select * from user";
+			connection.query(sql,(qerr,result)=>{
+				connection.release();
+				cb(result)
+			})
+		}
+	})
+}
+function addpro(name,price,desc,imgurl,origin,brand,typeid){
+	dbutil.pool.getConnection(function(err,connection){
+		if(err){
+			console.log(err)
+		}else{
+			var sql = "insert into product(name,price,desc,imgurl,origin,brand,typeid) values(?,?,?,?,?,?,?)";
+			connection.query(sql,[name,price,desc,imgurl,origin,brand,typeid],(qerr,result)=>{
+				connection.release();
+				cb(result)
+			})
+		}
+	})
+}
+exports.addpro = addpro;
+exports.queryuser = queryuser;
 exports.productquery = productquery;
 exports.sofaquery = sofaquery;
 
@@ -139,3 +181,5 @@ exports.canjuquery = canjuquery;
 exports.zshiquery = zshiquery;
 exports.checkAdminLogin=checkAdminLogin;
 exports.productdele = productdele;
+
+exports.producttype = producttype;
