@@ -1,5 +1,6 @@
 const adminDba = require("../dba/adminDba.js");
 
+<<<<<<< HEAD
 //进入管理员登录主页
 // function toLogin(req,res){
 // 	 console.log('req.signedCookies',req.signedCookies);
@@ -25,6 +26,8 @@ function addprod(req,res){
 	var typeid = req.query.typeid;
 	adminDba.addpro(name,price,desc,imgurl,origin,brand,typeid);
 }
+=======
+>>>>>>> ddd
 //管理员登录时
 function adminlogin(req,res){
 	console.log('……');
@@ -46,17 +49,75 @@ function adminlogin(req,res){
 // 	res.render("login",{inf:"请登录"});
 // }
 
+// 将总条数返回
+	function getTotalnum(req,res){
+		console.log("总条数");
+		adminDba.getTotalnum((num)=>{
+			res.json(num)
+		})
+	}
+
+
+
 
 //产品所有查询
 	function productsel(req,res){
-		adminDba.productquery((result)=>{
+		console.log("hhhh");
+		var nowpage = req.query.nowPage;
+		console.log('------nowpage',nowpage)
+		console.log('------nowpage',typeof nowpage)
+		var len = 5;
+		var first = (nowpage-1)*len;
+		console.log('index',first,'len',len)
+		adminDba.productquery(first,len,function(result){
 			res.json(result)
 		})
+// 		adminDba.productquery((first,len,result)=>{
+// 			res.json(result)
+// 		})
 	}
+<<<<<<< HEAD
 //根据typeid查询商品
 	function selectpro(req,res){
 		var typeid = req.query.typeid;
 		adminDba.productquery(typeid)
+=======
+//沙发
+	function selectsofa(req,res){
+		adminDba.sofaquery((result)=>{
+			res.json(result)
+		})
+	}
+//椅凳
+	function selectyideng(req,res){
+		adminDba.yidengquery((result)=>{
+			res.json(result)
+		})
+	}
+	//桌几
+	function selectzuoji(req,res){
+		adminDba.zuojiquery((result)=>{
+			res.json(result)
+		})
+	}
+	//灯具
+	function selectdengju(req,res){
+		adminDba.dengjuquery((result)=>{
+			res.json(result)
+		})
+	}
+	//餐具
+	function selectcanju(req,res){
+		adminDba.canjuquery((result)=>{
+			res.json(result)
+		})
+	}
+	//装饰
+	function selectzshi(req,res){
+		adminDba.zshiquery((result)=>{
+			res.json(result)
+		})
+>>>>>>> ddd
 	}
 
 //删除商品
@@ -77,6 +138,7 @@ function adminlogin(req,res){
 		})
 	}	
 // exports.toLogin = toLogin;
+<<<<<<< HEAD
 //将总条数返回
 	function getTotalnum(req,res){
 		console.log("总条数");
@@ -87,8 +149,11 @@ function adminlogin(req,res){
 	exports.getTotalnum = getTotalnum;
 exports.selectpro = selectpro;
 exports.usersele = usersele;
+=======
+
+>>>>>>> ddd
 exports.adminlogin = adminlogin;
-exports.login = login;
+exports.getTotalnum = getTotalnum;
 exports.productsel = productsel;
 
 exports.deleproduct = deleproduct;

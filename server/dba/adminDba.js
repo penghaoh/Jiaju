@@ -17,22 +17,51 @@ function checkAdminLogin(name,pwd,cb){
 	})
 };
 
-//产品所有查询
-function productquery (cb){
+//查询总条数
+function getTotalnum(cb) {
 	dbutil.pool.getConnection(function(err,connection){
 		if(err){
 			console.log(err)
 		}else{
-			var sql = "select * from product ";
+			var sql = "select count(*)as num from product ";
 			connection.query(sql,(qerr,result)=>{
 				connection.release();
-				cb(result)
+				cb(result);
+				console.log('getTotalnum',result[0].num)
+
 			})
 		}
 	})
 }
+
+//产品所有查询
+function productquery (first,len,cb){
+	console.log('index',first,'len',len)
+	dbutil.pool.getConnection(function(err,connection){
+		if(err){
+			console.log(err)
+		}else{
+			var sql = "select * from product limit ?,? ";
+			connection.query(sql,[first,len],(qerr,result)=>{
+				connection.release();
+				cb(result)
+				console.log('------productquery',result)
+			
+			})
+		}
+	})
+}
+<<<<<<< HEAD
 //根据typeid查询
 function productquery(typeid){
+=======
+// productquery(2,5,function(){
+// 	console.log('njnjcdn')
+// })
+
+//沙发
+function sofaquery(cb){
+>>>>>>> ddd
 	dbutil.pool.getConnection(function(err,connection){
 		if(err){
 			console.log(err)
@@ -106,6 +135,26 @@ function addpro(name,price,desc,imgurl,origin,brand,typeid){
 		}
 	})
 }
+<<<<<<< HEAD
+=======
+//商品删除
+function productdele(num){
+	dbutil.pool.getConnection(function(err,connection){
+		if(err){
+			console.log(err)
+		}else{
+			var sql = "delect from product where id =?";
+			connection.query(sql,[num],(qerr,result)=>{
+				connection.release();
+				// cb('删除成功')
+			})
+		}
+	})
+}
+
+exports.getTotalnum = getTotalnum;
+
+>>>>>>> ddd
 exports.productquery = productquery;
 exports.addpro = addpro;
 exports.queryuser = queryuser;
