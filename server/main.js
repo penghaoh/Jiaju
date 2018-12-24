@@ -11,21 +11,14 @@ app.set("views","./views");
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({extended:false}));
 //导入cookie-parse模块
-<<<<<<< HEAD
- 
-var adminConn = require('./conn/adminConn');
-app.get('/*',function(req,res){
-=======
 const cookieParser = require("cookie-parser");
 app.use(cookieParser("aabbcc12345"));
 
 var adminConn = require('./conn/adminConn');
 app.post('/*',function(req,res){
->>>>>>> 5a48d76753da3767b4155fb6ea55b220d0db5c38
 	res.setHeader("Access-Control-Allow-Origin","*");
 	var pathname = url.parse(req.url).pathname;
-	console.log(pathname)
-<<<<<<< HEAD
+	console.log(pathname);
 	if(pathname == "/"){
 		console.log('login')
 		adminConn.login(req,res)
@@ -38,28 +31,12 @@ app.post('/*',function(req,res){
 	}else if(pathname == '/selectpro'){
 		//查询类型商品根据typeid, 请求后通过?typeid = 传递
 		adminConn.selectpro(req,res)
-<<<<<<< HEAD
-	}else if(pathname == "/selectAll"){
-		//查询所有商品
-		adminConn.productsel(req,res);
-	}else if(pathname == "/getTotalnum"){
-		//查询所有商品
-		adminConn.getTotalnum(req,res);
 	}
-})
-app.post('/*',function(req,res){
-	res.setHeader("Access-Control-Allow-Origin","*");
-	var pathname = url.parse(req.url).pathname;
-	
 	if(pathname == "/login"){
 		adminConn.adminlogin(req,res);
-=======
-=======
-	if(pathname == "/login"){
-		adminConn.adminlogin(req,res);
->>>>>>> ddd
 	}
 })
+
 app.get('/*',function(req,res){
 	res.setHeader("Access-Control-Allow-Origin","*");
 	var pathname = url.parse(req.url).pathname;
@@ -71,15 +48,12 @@ app.get('/*',function(req,res){
 	if(pathname == "/selectAll"){
 		//查询所有商品
 		adminConn.productsel(req,res);
-<<<<<<< HEAD
->>>>>>> 5a48d76753da3767b4155fb6ea55b220d0db5c38
 	}else if(pathname == '/showtype'){
 		//查询类型 protyoe表
 		adminConn.showtype(req,res)
 	}else if(pathname == '/add'){
 		//增加商品
 		adminConn.addprod(req,res)
-=======
 	}else if(pathname == '/sofa'){
 		//沙发
 		adminConn.selectsofa(req,res)
@@ -101,7 +75,6 @@ app.get('/*',function(req,res){
 	}else if(pathname == '/dele'){
 		//删除商品
 		adminConn.deleproduct(req,res)
->>>>>>> ddd
 	}
 })
 

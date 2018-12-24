@@ -79,7 +79,7 @@
 		  methods: {
 				getNowpage: function(val){
 					this.nowPage = val
-					axios.get("http://localhost:9999/selectAll", {
+					axios.get("http://192.168.2.108:9999/selectAll", {
 						params: { 
 							nowPage: this.nowPage
 						}
@@ -97,7 +97,7 @@
 			//获取总条数
 			axios({
 				method: "get",
-				url: "http://localhost:9999/getTotalnum"
+				url: "http://192.168.2.108:9999/getTotalnum"
 			}).then(response => {
 				console.log("发送Ajax请求成功");
 				this.totalNum = parseInt(response.data[0].num);
@@ -108,7 +108,7 @@
 			
 			//根据当前页面请求数据
 			
-		axios.get("http://localhost:9999/selectAll", {
+		axios.get("http://192.168.2.108:9999/selectAll", {
 			params: { 
 				nowPage: this.nowPage
 			}
@@ -124,8 +124,4 @@
 </script>
 
 <style>
-	.block {
-		
-	}
-
 </style>

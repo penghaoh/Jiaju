@@ -1,9 +1,9 @@
 var mysql = require("mysql");
 //连接池
 var pool = mysql.createPool({
-	host: '192.168.2.104',
-	user: 'tl',
-	password: '123456',
+	host: '129.204.78.65',
+	user: 'root',
+	password: 'Hkqcs.2018',
 	database: 'myproject',
 	port: 3306
 });

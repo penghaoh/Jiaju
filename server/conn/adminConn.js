@@ -1,6 +1,5 @@
 const adminDba = require("../dba/adminDba.js");
 
-<<<<<<< HEAD
 //进入管理员登录主页
 // function toLogin(req,res){
 // 	 console.log('req.signedCookies',req.signedCookies);
@@ -26,8 +25,6 @@ function addprod(req,res){
 	var typeid = req.query.typeid;
 	adminDba.addpro(name,price,desc,imgurl,origin,brand,typeid);
 }
-=======
->>>>>>> ddd
 //管理员登录时
 function adminlogin(req,res){
 	console.log('……');
@@ -57,33 +54,7 @@ function adminlogin(req,res){
 		})
 	}
 
-
-
-
 //产品所有查询
-<<<<<<< HEAD
-function productsel(req,res){
-	console.log("hhhh");
-	var nowpage = req.query.nowPage;
-	console.log('------nowpage',nowpage)
-	console.log('------nowpage',typeof nowpage)
-	var len = 5;
-	var first = (nowpage*1-1)*len;
-	console.log('index',first,'len',len)
-	adminDba.productquery(first,len,function(result){
-		res.json(result)
-	})
-// 		adminDba.productquery((first,len,result)=>{
-// 			res.json(result)
-// 		})
-}
-//根据typeid查询商品
-	function selectpro(req,res){
-		var typeid = req.query.typeid;
-		adminDba.productquerys(typeid,function(result){
-			res.json(result)
-		})
-=======
 	function productsel(req,res){
 		console.log("hhhh");
 		var nowpage = req.query.nowPage;
@@ -99,12 +70,12 @@ function productsel(req,res){
 // 			res.json(result)
 // 		})
 	}
-<<<<<<< HEAD
+
 //根据typeid查询商品
 	function selectpro(req,res){
 		var typeid = req.query.typeid;
 		adminDba.productquery(typeid)
-=======
+	}
 //沙发
 	function selectsofa(req,res){
 		adminDba.sofaquery((result)=>{
@@ -140,16 +111,8 @@ function productsel(req,res){
 		adminDba.zshiquery((result)=>{
 			res.json(result)
 		})
->>>>>>> ddd
->>>>>>> 5a48d76753da3767b4155fb6ea55b220d0db5c38
 	}
-// 将总条数返回
-function getTotalnum(req,res){
-	console.log("总条数");
-	adminDba.getTotalnum((num)=>{
-		res.json(num)
-	})
-}
+
 //删除商品
 	function deleproduct(req,res){
 		var num = req.query.id;
@@ -167,8 +130,6 @@ function getTotalnum(req,res){
 			res.json(result)
 		})
 	}	
-// exports.toLogin = toLogin;
-<<<<<<< HEAD
 //将总条数返回
 	function getTotalnum(req,res){
 		console.log("总条数");
@@ -176,17 +137,13 @@ function getTotalnum(req,res){
 			res.json(num)
 		})
 	}
-	exports.getTotalnum = getTotalnum;
+	
+exports.getTotalnum = getTotalnum;
 exports.selectpro = selectpro;
 exports.usersele = usersele;
-=======
-
->>>>>>> ddd
 exports.adminlogin = adminlogin;
 exports.getTotalnum = getTotalnum;
 exports.productsel = productsel;
-
 exports.deleproduct = deleproduct;
 exports.showtype = showtype;
 exports.addprod = addprod;
-exports.getTotalnum = getTotalnum;

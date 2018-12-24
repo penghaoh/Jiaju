@@ -1,9 +1,8 @@
 <template>
 	<div class='container'>
-		<div class='aside'>
+		<div class='aside' >
 			<h3>选项列表</h3>
-			<router-link :class='[leftView]' v-for='(value,index) in myList' :to='value.url' :key="index">{{value.text}}</router-link>
-			
+			<router-link :class='[leftView]' v-for='item in myList' :to='item.url'>{{item.text}}</router-link>
 		</div>
 		<router-view :class='[rightView]'></router-view>
 	</div>
