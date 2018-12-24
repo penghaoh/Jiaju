@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div class="nav">
-			<router-link v-for='item in myList' :to='item.url'>{{item.text}}</router-link>
+			<router-link v-for='(value,index) in myList' :to='value.url' :key="index" v-on:click="jumps">{{value.text}}{{index}}</router-link>
 		</div>
 		<div class="content">
 			<router-view></router-view>
@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import axios from 'axios'; 
 	export default {
 		name: 'Goods',
 		data() {
@@ -25,6 +26,20 @@
 				],
 			};
 		},
+		methods:{
+			jumps:function(index){
+				console.log('hello')
+				axios.get('http://localhost:9999/selectpro',{
+					params:{
+						typeid:index
+					}
+				}).then(response=>{
+					console.log('请求成功')
+				}).catch(response=>{
+					console.log('请求失败')
+				})
+			}
+		}
 // 		created: function() {
 // 			console.log('请求商品分类');
 // 			axios({

@@ -48,17 +48,35 @@ function adminlogin(req,res){
 
 
 //产品所有查询
-	function productsel(req,res){
-		adminDba.productquery((result)=>{
-			res.json(result)
-		})
-	}
+function productsel(req,res){
+	console.log("hhhh");
+	var nowpage = req.query.nowPage;
+	console.log('------nowpage',nowpage)
+	console.log('------nowpage',typeof nowpage)
+	var len = 5;
+	var first = (nowpage*1-1)*len;
+	console.log('index',first,'len',len)
+	adminDba.productquery(first,len,function(result){
+		res.json(result)
+	})
+// 		adminDba.productquery((first,len,result)=>{
+// 			res.json(result)
+// 		})
+}
 //根据typeid查询商品
 	function selectpro(req,res){
 		var typeid = req.query.typeid;
-		adminDba.productquery(typeid)
+		adminDba.productquerys(typeid,function(result){
+			res.json(result)
+		})
 	}
-
+// 将总条数返回
+function getTotalnum(req,res){
+	console.log("总条数");
+	adminDba.getTotalnum((num)=>{
+		res.json(num)
+	})
+}
 //删除商品
 	function deleproduct(req,res){
 		var num = req.query.id;
@@ -94,3 +112,4 @@ exports.productsel = productsel;
 exports.deleproduct = deleproduct;
 exports.showtype = showtype;
 exports.addprod = addprod;
+exports.getTotalnum = getTotalnum;
