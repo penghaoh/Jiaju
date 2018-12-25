@@ -17,6 +17,39 @@ function checkAdminLogin(name,pwd,cb){
 	})
 }
 
+// 用户管理模块
+
+//用户表查询
+function queryuser(cb){
+	dbutil.pool.getConnection(function(err,connection){
+		if(err){
+			console.log(err)
+		}else{
+			var sql = "select * from user";
+			connection.query(sql,(qerr,result)=>{
+				connection.release();
+				cb(result)
+				// console.log(result);
+			})
+		}
+	})
+}
+
+// 产品管理模块
+//查询类型
+function producttype(cb){
+	dbutil.pool.getConnection(function(err,connection){
+		if(err){
+			console.log(err)
+		}else{
+			var sql = "select * from protype";
+			connection.query(sql,(qerr,result)=>{
+				connection.release();
+				cb(result)
+			})
+		}
+	})
+}
 //查询总条数
 function getTotalnum(cb) {
 	dbutil.pool.getConnection(function(err,connection){
@@ -45,7 +78,7 @@ function productquery (first,len,cb){
 			connection.query(sql,[first,len],(qerr,result)=>{
 				connection.release();
 				cb(result)
-				console.log('------productquery',result)
+				// console.log('------productquery',result)
 			
 			})
 		}
@@ -82,34 +115,8 @@ function productdele(num){
 		}
 	})
 }
-//查询类型
-function producttype(){
-	dbutil.pool.getConnection(function(err,connection){
-		if(err){
-			console.log(err)
-		}else{
-			var sql = "select * from protype";
-			connection.query(sql,(qerr,result)=>{
-				connection.release();
-				cb(result)
-			})
-		}
-	})
-}
-//用户表查询
-function queryuser(){
-	dbutil.pool.getConnection(function(err,connection){
-		if(err){
-			console.log(err)
-		}else{
-			var sql = "select * from user";
-			connection.query(sql,(qerr,result)=>{
-				connection.release();
-				cb(result)
-			})
-		}
-	})
-}
+
+
 //增加商品
 function addpro(name,price,desc,imgurl,origin,brand,typeid){
 	dbutil.pool.getConnection(function(err,connection){
@@ -138,6 +145,11 @@ function productdele(num){
 		}
 	})
 }
+
+//测试
+// queryuser(function(){
+// 	
+// })
 
 exports.getTotalnum = getTotalnum;
 exports.productquery = productquery;

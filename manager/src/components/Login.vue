@@ -100,7 +100,7 @@
 		methods: {
 			login: function() {
 				console.log(this.users)
-				axios.post('http://192.168.2.108:9999/login', this.users, {
+				axios.post('http://192.168.1.6:9999/login', this.users, {
 					transformRequest: [
 						function(data) {
 							let params = '';

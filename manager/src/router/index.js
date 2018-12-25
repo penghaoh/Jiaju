@@ -25,12 +25,12 @@ export default new Router({
 					name: 'Goods',
 					component: Goods,
 					children: [{
-							path: '/',
+							path: '/goods',
 							name: 'Family',
 							component: Family,
 						},
 						{
-							path: '/soft',
+							path: '/sofa',
 							name: 'Family',
 							component: Family,
 						},
@@ -61,12 +61,7 @@ export default new Router({
 					]
 				},
 				{
-					path: '/user',
-					name: 'User',
-					component: User
-				},
-				{
-					path: '/',
+					path: '/main',
 					name: 'User',
 					component: User
 				}

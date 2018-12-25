@@ -1,5 +1,6 @@
 <template>
 	<div>
+		<span>typeid值:{{this.$route.query.typeid}}</span>
 			<!-- 显示区域 -->
 			<el-table :data="mydata" style="width: 100%;height: 100%;">
 				<el-table-column type="expand">
@@ -20,9 +21,6 @@
 							<el-form-item label="品牌">
 								<span>{{ props.row.brand }}</span>
 							</el-form-item>
-		<!-- 					<el-form-item label="店铺地址">
-								<span>{{ props.row.address }}</span>
-							</el-form-item> -->
 							<el-form-item label="商品描述">
 								<span>{{ props.row.desc }}</span>
 							</el-form-item>
@@ -71,6 +69,7 @@
 		name: 'Family',
 		data() {
 			return {
+				typeid:this.$route.query.typeid, 
 				totalNum: 0,
 				mydata:[],
 				nowPage:1,
@@ -79,7 +78,7 @@
 		  methods: {
 				getNowpage: function(val){
 					this.nowPage = val
-					axios.get("http://192.168.2.108:9999/selectAll", {
+					axios.get("http://192.168.1.6:9999/selectAll", {
 						params: { 
 							nowPage: this.nowPage
 						}
@@ -97,7 +96,7 @@
 			//获取总条数
 			axios({
 				method: "get",
-				url: "http://192.168.2.108:9999/getTotalnum"
+				url: "http://192.168.1.6:9999/getTotalnum"
 			}).then(response => {
 				console.log("发送Ajax请求成功");
 				this.totalNum = parseInt(response.data[0].num);
@@ -108,7 +107,7 @@
 			
 			//根据当前页面请求数据
 			
-		axios.get("http://192.168.2.108:9999/selectAll", {
+		axios.get("http://192.168.1.6:9999/selectAll", {
 			params: { 
 				nowPage: this.nowPage
 			}

@@ -18,22 +18,27 @@ var adminConn = require('./conn/adminConn');
 app.post('/*',function(req,res){
 	res.setHeader("Access-Control-Allow-Origin","*");
 	var pathname = url.parse(req.url).pathname;
-	console.log(pathname);
-	if(pathname == "/"){
-		console.log('login')
-		adminConn.login(req,res)
-	}else if(pathname == '/dele'){
-		//删除商品
-		adminConn.deleproduct(req,res)
+	
+	if(pathname == "/login"){
+		// 验证管理员登录信息
+		adminConn.adminlogin(req,res);
 	}else if(pathname == '/usersele'){
-		//用户表查询
+		console.log('pathname',pathname);
+		//用户管理模块用户表查询
 		adminConn.usersele(req,res)
 	}else if(pathname == '/selectpro'){
 		//查询类型商品根据typeid, 请求后通过?typeid = 传递
+		console.log('pathname',pathname);
 		adminConn.selectpro(req,res)
-	}
-	if(pathname == "/login"){
-		adminConn.adminlogin(req,res);
+	}else if(pathname == '/dele'){
+		//删除商品
+		adminConn.deleproduct(req,res)
+	}else if(pathname == '/add'){
+		//增加商品
+		adminConn.addprod(req,res)
+	}else if(pathname == '/updatepro'){
+		//修改商品
+		adminConn.updatepro(req,res)
 	}
 })
 
@@ -42,39 +47,14 @@ app.get('/*',function(req,res){
 	var pathname = url.parse(req.url).pathname;
 	console.log('---------pathname',pathname)
 	if(pathname == "/getTotalnum"){
-		//查询所有商品
+		//查询所有商品条数
 		adminConn.getTotalnum(req,res);
-	}
-	if(pathname == "/selectAll"){
+	}else if(pathname == "/selectAll"){
 		//查询所有商品
 		adminConn.productsel(req,res);
 	}else if(pathname == '/showtype'){
 		//查询类型 protyoe表
 		adminConn.showtype(req,res)
-	}else if(pathname == '/add'){
-		//增加商品
-		adminConn.addprod(req,res)
-	}else if(pathname == '/sofa'){
-		//沙发
-		adminConn.selectsofa(req,res)
-	}else if(pathname == '/yideng'){
-		//椅凳
-		adminConn.selectyideng(req,res)
-	}else if(pathname == '/zuoji'){
-		//桌几
-		adminConn.selectzuoji(req,res)
-	}else if(pathname == '/dengju'){
-		//灯具
-		adminConn.selectdengju(req,res)
-	}else if(pathname == '/canju'){
-		//餐具
-		adminConn.selectcanju(req,res)
-	}else if(pathname == '/zshi'){
-		//装饰
-		adminConn.selectzshi(req,res)
-	}else if(pathname == '/dele'){
-		//删除商品
-		adminConn.deleproduct(req,res)
 	}
 })
 

@@ -1,7 +1,8 @@
 <template>
 	<div>
 		<div class="nav">
-			<router-link v-for='item in myList' :to='item.url'>{{item.text}}</router-link>
+			<router-link :to="{path:'/goods',query:{typeid:''}}">全部</router-link>
+			<router-link v-for='(item,index) in mydata' :to="{path:item.url,query:{typeid:item.type_id}}">{{item.name}}</router-link>
 		</div>
 		<div class="content">
 			<router-view></router-view>
@@ -10,34 +11,33 @@
 </template>
 
 <script>
+	import axios from 'axios';
 	export default {
 		name: 'Goods',
 		data() {
 			return {
-				myList: [
-					{url:'/',text:'首页'},
-					{url:'/soft',text:'沙发'},
-					{url:'/chair',text:'椅凳'},
-					{url:'/desk',text:'桌几'},
-					{url:'/lamp',text:'灯具'},
-					{url:'/tableware',text:'餐具'},
-					{url:'/decoration',text:'装饰'}
-				],
-			};
+				mydata:[]
+			}
+			
 		},
-// 		created: function() {
-// 			console.log('请求商品分类');
-// 			axios({
-// 				method: "get",
-// 				url: "http://192.168.2.103:9999/selectAll"
-// 			}).then(response => {
-// 				console.log("发送Ajax请求成功");
-// 				this.mydata = response.data;
-// 				console.log(this.mydata)
-// 			}).catch(response => {
-// 				console.log("发送Ajax请求失败", response);
-// 			})
-// 		}
+		methods: {
+			getIndex:function(index){
+				this.index = index;
+			}
+		},
+		created: function() {
+			console.log('请求商品分类');
+			axios({
+				method: "get",
+				url: "http://192.168.1.6:9999/showtype"
+			}).then(response => {
+				console.log("发送Ajax请求成功");
+				this.mydata = response.data;
+				console.log(this.mydata)
+			}).catch(response => {
+				console.log("发送Ajax请求失败", response);
+			})
+ 		}
 		
 	}
 </script>

@@ -17,7 +17,7 @@
 				rightView: 'rightView',
 				myList: [
 					{url:'/goods',text:'商品管理'},
-					{url:'/user',text:'用户管理'},
+					{url:'/main',text:'用户管理'},
 				],
 				
 			};
