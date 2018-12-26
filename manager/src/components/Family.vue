@@ -1,7 +1,6 @@
 <template>
 	<div>
-		<!-- <span>typeid值:{{this.$route.query.typeid}}</span>	 -->
-		<span v-model="typeid"></span>
+		<span>typeid值:{{this.$route.query.typeid}}</span>	
 			<!-- 显示区域 -->
 			<el-table :data="mydata" style="width: 100%;height: 100%;">
 				<el-table-column type="expand">
@@ -166,7 +165,7 @@
 		created: function() {
 				this.mydata = [];
 				this.totalNum = 0;
-				 this.typeid = 0;
+				this.typeid = 0;
 // 				if(this.$route.query.typeid == undefined){
 // 						this.typeid = 0
 // 				}else {
@@ -193,10 +192,10 @@
 						})
 			
  		},
-	beforeUpdate: function() {
-		this.typeid = this.$route.query.typeid;
-		console.log('this.typeid',this.typeid)
-	},
+		beforeUpdate: function() {
+			(this.$route.query.typeid == undefined)? this.typeid=0 : this.typeid=this.$route.query.typeid;
+			console.log('this.typeid',this.typeid)
+		},
 }
 </script>
 

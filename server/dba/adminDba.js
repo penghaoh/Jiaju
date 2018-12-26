@@ -169,15 +169,17 @@ function producttype(cb){
 
 //增加商品
 function addpro(name,price,descs,imgurl,origin,brand,typeid,cb){
+	console.log('=========',name,price,descs,imgurl,origin,brand,typeid);
 	dbutil.pool.getConnection(function(err,connection){
 		if(err){
 			console.log(err)
 		}else{
 			var sql = "insert into product(name,price,descs,imgurl,origin,brand,typeid) values(?,?,?,?,?,?,?)";
+			console.log('sql之后')
 			connection.query(sql,[name,price,descs,imgurl,origin,brand,typeid],(qerr,result)=>{
 				connection.release();
-				cb(result)
-				// console.log(result)
+				console.log(result)
+				cb(result.affectedRows)
 			})
 		}
 	})

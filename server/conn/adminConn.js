@@ -141,18 +141,17 @@ function proupdate(req,res){
 	function addprod(req,res){
 		console.log(req.body)
 		var name = req.body.name;
-		var price = req.body.price;
+		var price =req.body.price;
 		var descs = req.body.descs;
 		var imgurl = req.body.imgurl;
 		var origin  = req.body.origin;
-		var brand = req.body.brand;
+		var brand =  req.body.brand;
 		var typeid =req.body.typeid;
-		console.log(typeid)
 		console.log(typeof typeid)
 		
 		// console.log('-------------------------77777',name,price,descs,imgurl,origin,brand,typeid)
 		adminDba.addpro(name,price,descs,imgurl,origin,brand,typeid,function(result){
-			res.json(result.affectedRows)
+			res.json(result)
 		});
 	}
 
