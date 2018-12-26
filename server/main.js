@@ -22,23 +22,17 @@ app.post('/*',function(req,res){
 	if(pathname == "/login"){
 		// 验证管理员登录信息
 		adminConn.adminlogin(req,res);
-	}else if(pathname == '/usersele'){
-		console.log('pathname',pathname);
-		//用户管理模块用户表查询
-		adminConn.usersele(req,res)
-	}else if(pathname == '/selectpro'){
-		//查询类型商品根据typeid, 请求后通过?typeid = 传递
-		console.log('pathname',pathname);
-		adminConn.selectpro(req,res)
+	}else if(pathname == '/updateUser'){
+		console.log('updateUser--pathname',pathname);
+		//用户管理模块用户表修改
+		adminConn.updateUserinfo(req,res)
 	}else if(pathname == '/dele'){
 		//删除商品
 		adminConn.deleproduct(req,res)
 	}else if(pathname == '/add'){
 		//增加商品
+		console.log(pathname);
 		adminConn.addprod(req,res)
-	}else if(pathname == '/updatepro'){
-		//修改商品
-		adminConn.updatepro(req,res)
 	}
 })
 
@@ -49,12 +43,22 @@ app.get('/*',function(req,res){
 	if(pathname == "/getTotalnum"){
 		//查询所有商品条数
 		adminConn.getTotalnum(req,res);
-	}else if(pathname == "/selectAll"){
-		//查询所有商品
-		adminConn.productsel(req,res);
 	}else if(pathname == '/showtype'){
 		//查询类型 protyoe表
 		adminConn.showtype(req,res)
+	}else if(pathname == '/proupdate'){
+		//修改商品
+		adminConn.proupdate(req,res)
+	}else if(pathname == '/selectpro'){
+		//查询类型商品根据typeid, 请求后通过?typeid = 传递
+		adminConn.selectpro(req,res)
+	}else if(pathname == '/dele'){
+		//删除商品
+		adminConn.deleproduct(req,res)
+	}else if(pathname == '/usersele'){
+		console.log('pathname',pathname);
+		//用户管理模块用户表分页查询
+		adminConn.usersele(req,res)
 	}
 })
 

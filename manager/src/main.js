@@ -4,6 +4,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+// 导入cookie,并使用
+import VueCookies from 'vue-cookies'
+Vue.use(VueCookies)
+
 import ElementUI from 'element-ui'; //引入element-ui组件库
 import 'element-ui/lib/theme-chalk/index.css'; //引入element-ui组件库的css文件
 Vue.use(ElementUI); //使用ElementUI组件库

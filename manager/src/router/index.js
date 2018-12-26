@@ -24,7 +24,13 @@ export default new Router({
 					path: '/goods',
 					name: 'Goods',
 					component: Goods,
-					children: [{
+					children: 
+// 					[{
+// 							path: '/family',
+// 							name: 'Family',
+// 							component: Family,
+// 						},
+					 [{
 							path: '/goods',
 							name: 'Family',
 							component: Family,
@@ -58,7 +64,7 @@ export default new Router({
 							name: 'Family',
 							component: Family,
 						}
-					]
+ 					]
 				},
 				{
 					path: '/main',
