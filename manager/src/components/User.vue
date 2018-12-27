@@ -1,11 +1,11 @@
 <template>
-	<div id="usermanager">
-		<h2>用户管理</h2>
+	<div>
+		<div id="usertitle">用户管理信息</div>
 		<!-- 显示数据表 -->
 			<template>
 				<el-table
 					:data="userData"
-					style="width: 100%">
+					style="width: 94%;margin:0px 3%;">
 					<el-table-column
 						label="用户ID"
 						width="180">
@@ -29,7 +29,7 @@
 				</el-table-column>
 				<el-table-column
 					label="用户地址"
-					width="180">
+					width="380">
 					<template slot-scope="scope">
 						<i class="el-icon-location"></i>
 						<span style="margin-left: 10px">{{ scope.row.address }}</span>
@@ -172,25 +172,33 @@
 </script>
 
 <style scoped>
-	#usermanager {
-		width: 100%;
-		height: auto;
-		padding: 0px 10px;
-		box-sizing: border-box;
+	/* 标题内容 */
+	#usertitle {
+		width: 180px;
+		height: 70px;
+		font-size: 24px;
+		background-color: #00B2EE;
+		color: #fff;
+		border-radius: 50%;
+		font-weight: bold;
+		line-height: 70px;
+		text-align: center;
+		margin: 10px 3%;
 	}
-	#usermanager>h2 {
-		margin: 20px 0px;
-	}
-	#usermanager #updatefrom {
+	/* 修改用户表 */
+	#updatefrom {
+		position: absolute;
+		top:0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto;
 		width: 500px;
 		height: 380px;
 		border-radius: 5px;
 		border: 1px solid #ccc;
 		background-color: #fff;
 		box-shadow: 2px 2px 20px #333;
-		position: absolute;
-		top: 135px;
-		left: 500px;
 		padding: 20px;
 		box-sizing: border-box;
 		z-index: 999;
@@ -225,9 +233,14 @@
 		justify-content: space-around;
 	}
 	.btnarea button {
-		width: 80px;
+		width: 90px;
 		height: 40px;
-		background-color: #0074D9;
+		background-color: #409EFF;
+		border: none;
+		color: #fff;
+		line-height: 40px;
+		font-size: 16px;
+		border-radius: 5px;
 	}
 
 </style>

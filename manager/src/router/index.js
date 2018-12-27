@@ -12,66 +12,66 @@ Vue.use(Router)
 
 export default new Router({
 	routes: [{
-			path: '/',
-			name: 'Login',
-			component: Login
-		},
-		{
-			path: '/main',
-			name: 'Main',
-			component: Main,
-			children: [{
-					path: '/goods',
-					name: 'Goods',
-					component: Goods,
-					children: 
-// 					[{
-// 							path: '/family',
-// 							name: 'Family',
-// 							component: Family,
-// 						},
-					 [{
-							path: '/goods',
-							name: 'Family',
-							component: Family,
-						},
-						{
-							path: '/sofa',
-							name: 'Family',
-							component: Family,
-						},
-						{
-							path: '/chair',
-							name: 'Family',
-							component: Family,
-						},
-						{
-							path: '/desk',
-							name: 'Family',
-							component: Family,
-						},
-						{
-							path: '/lamp',
-							name: 'Family',
-							component: Family,
-						},{
-							path: '/tableware',
-							name: 'Family',
-							component: Family,
-						},
-						{
-							path: '/decoration',
-							name: 'Family',
-							component: Family,
-						}
- 					]
-				},
-				{
-					path: '/main',
-					name: 'User',
-					component: User
+				path: '/',
+				name: 'Login',
+				component: Login,
+				meta: {
+					isLogin: false
 				}
-			]
-		}
-	]
-})
+			},
+			{
+				path: '/main',
+				name: 'Main',
+				component: Main,
+				meta: {
+					isLogin: true
+				},
+				redirect: '/allgoods',
+				children: [{
+							path: '/goods',
+							name: 'Goods',
+							component: Goods,
+							redirect: '/allgoods',
+							children: [{
+											path: '/allgoods',
+											name: 'Family',
+											component: Family,
+											
+										},
+										{
+											path: '/sofa',
+											name: 'Family',
+											component: Family,
+										},
+										{
+											path: '/chair',
+											name: 'Family',
+											component: Family,
+										},
+										{
+											path: '/desk',
+											name: 'Family',
+											component: Family,
+										},
+										{
+											path: '/lamp',
+											name: 'Family',
+											component: Family,
+										},{
+											path: '/tableware',
+											name: 'Family',
+											component: Family,
+										},
+										{
+											path: '/decoration',
+											name: 'Family',
+											component: Family,
+										}
+									]},
+						{
+							path: '/user',
+							name: 'User',
+							component: User
+						}]
+			}]
+	})

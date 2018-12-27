@@ -8,7 +8,8 @@ function adminlogin(req,res){
 	console.log('name',name,'pwd',pwd);
 	adminDba.checkAdminLogin(name,pwd,function(result){
 		if(result.length == '1'){
-			// res.cookie("admin",result[0],{signed:true}),
+			// res.cookie("admin",name,{signed:true}),
+			
 			res.json("ok");//进入主页
 		}else {
 			res.json("no");
@@ -99,7 +100,7 @@ function adminlogin(req,res){
 		}else {//查询其他分类商品
 			adminDba.productquerys(first,len,typeid,function(result){
 				// console.log('adminConn 商品分页查询结果',result)
-				var proInfo = result;
+				var searchinfo = result;
 				//获取分类总条数
 				adminDba.getTypeNum(typeid,(num)=>{
 					console.log("getTypeNum",num)
@@ -107,14 +108,23 @@ function adminlogin(req,res){
 						var obj2 = {};
 						obj2.totlenum = num;
 						console.log("obj2.totlenum",obj2);
-						proInfo.push(obj2);
-						res.json(proInfo);
-						// console.log('adminConn 商品分页查询结果proInfo',proInfo)
+						searchinfo.push(obj2);
+						res.json(searchinfo);
+						// console.log('adminConn 商品分页查询结果searchinfo',searchinfo)
 					}
 				})
 			})
 		}
 		
+	}
+	
+//搜索框搜索商品
+	function searchPro(req,res){
+		var searchKey = req.query.searchKey;
+		console.log('searchKey',searchKey)
+		adminDba.searchPro(searchKey,function(result){
+			res.json(result);
+		})
 	}
 
 //删除商品
@@ -164,6 +174,7 @@ exports.updateUserinfo = updateUserinfo;
 //产品管理模块
 exports.showtype = showtype;
 exports.selectpro = selectpro;
+exports.searchPro = searchPro;
 exports.deleproduct = deleproduct;
 exports.addprod = addprod;
 exports.proupdate = proupdate;

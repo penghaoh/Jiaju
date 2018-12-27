@@ -18,7 +18,6 @@ var adminConn = require('./conn/adminConn');
 app.post('/*',function(req,res){
 	res.setHeader("Access-Control-Allow-Origin","*");
 	var pathname = url.parse(req.url).pathname;
-	
 	if(pathname == "/login"){
 		// 验证管理员登录信息
 		adminConn.adminlogin(req,res);
@@ -26,9 +25,6 @@ app.post('/*',function(req,res){
 		console.log('updateUser--pathname',pathname);
 		//用户管理模块用户表修改
 		adminConn.updateUserinfo(req,res)
-	}else if(pathname == '/dele'){
-		//删除商品
-		adminConn.deleproduct(req,res)
 	}else if(pathname == '/add'){
 		//增加商品
 		console.log(pathname);
@@ -53,8 +49,11 @@ app.get('/*',function(req,res){
 		//查询类型商品根据typeid, 请求后通过?typeid = 传递
 		adminConn.selectpro(req,res)
 	}else if(pathname == '/dele'){
-		//删除商品
+		//根据id删除商品
 		adminConn.deleproduct(req,res)
+	}else if(pathname == '/searchPro'){
+		//搜索框搜索商品
+		adminConn.searchPro(req,res)
 	}else if(pathname == '/usersele'){
 		console.log('pathname',pathname);
 		//用户管理模块用户表分页查询

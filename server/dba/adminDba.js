@@ -98,8 +98,24 @@ function getTypeNum(typeid,cb) {
 		}
 	})
 }
-//测试： 
-// getTypeNum(2,function(){
+
+//搜索框搜索产品
+function searchPro(searchKey,cb){
+	dbutil.pool.getConnection(function(err,connection){
+		if(err){
+			console.log(err)
+		}else{
+				var sql = `select * from product where name like '%${searchKey}%'`;
+				connection.query(sql,(qerr,result)=>{
+					connection.release();
+					cb(result);
+					console.log('searchPro',result)
+				})	
+		}
+	})
+}
+//测试
+// searchPro('造作',function(result){
 // 	
 // })
 
@@ -218,6 +234,7 @@ exports.getTotalnum = getTotalnum;
 exports.getTypeNum = getTypeNum;
 exports.productquery = productquery;
 exports.productquerys = productquerys;
+exports.searchPro = searchPro;
 exports.productdele = productdele;
 exports.producttype = producttype;
 exports.addpro = addpro;

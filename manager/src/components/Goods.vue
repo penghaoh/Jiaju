@@ -1,84 +1,35 @@
 <template>
 	<div>
+		<div class="title">商品管理信息</div>
 		<div class="nav">
-			<router-link :to="{path:'/goods',query:{typeid:'0'}}">全部</router-link>
+			<router-link :to="{path:'/allgoods',query:{typeid:'0'}}">全部</router-link>
 			<router-link  v-for='(item,index) in typeList'  :to="{path:item.url,query:{typeid:item.type_id}}">{{item.name}}</router-link>
 		</div>
-		<div class="nav">
-			<button @click="add">增加商品</button>
-		</div>
-		<div class="content">
-			<router-view></router-view>
-		</div>
-		<!-- 增加商品表格 -->
-		<form action v-if="flag" id="wrap">
-			typeid:
-			<input type="text" name="typeid" v-model="pro.typeid">
-			商品名称:
-			<input type="text" name="name" v-model="pro.name">
-			<br>价格:
-			<input type="text" name="price" v-model="pro.price">
-			图片:
-			<input type="text" name="imgurl" v-model="pro.imgurl">
-			<br>品牌:
-			<input type="text" name="brand" v-model="pro.brand">
-			产地:
-			<input type="text" name="origin" v-model="pro.origin">
-			<br>描述:
-			<input type="text" name="descs" v-model="pro.descs">
-			<button @click="addpro">提交</button>
-		</form>
+		<router-view></router-view>
 	</div>
 </template>
 
-<script>
+<script >
 	import axios from 'axios';
+	import $ from 'jquery';
+	$(document).on("click",".nav>a",function(){
+		$(this).css({
+			"backgroundColor":"#00B2EE",
+			"color":"#fff"
+		});
+		$(this).siblings('a').css({
+			"backgroundColor":"#fff",
+			"color":"#000"
+		});
+	});
 	export default {
 		name: 'Goods',
 		data() {
 			return {
 				typeList:[],
-				pro: {
-					typeid: '',
-					name: "",
-					price: '',
-					imgurl: "",
-					brand: "",
-					origin: "",
-					descs: ""
-				},
-				flag: false
+			
 			}
 			
-		},
-		methods: {
-			add: function() {
-				this.flag = !this.flag;
-			},
-			addpro: function() {
-			console.log("lllll");
-			console.log(this.pro)
-				axios.post("http://localhost:9999/add", this.pro, {
-						transformRequest: [
-							function(data) {
-								let params = "";
-								for (let index in data) {
-									params += index + "=" + data[index] + "&";
-								}
-								return params;
-							}
-						]
-					})
-					.then(response => {
-						console.log("get发送Ajax请求成功", response.data);
-						if (response.data == 1) {
-							this.flag = !this.flag;
-						}
-					})
-					.catch(response => {
-						console.log("get发送Ajax请求失败", response);
-					});
-			}
 		},
 		created: function() {
 			console.log('请求商品分类');
@@ -98,33 +49,42 @@
 	}
 </script>
 
-<style>
+<style scoped>
+	/* 标题内容 */
+	.title {
+		width: 180px;
+		height: 70px;
+		font-size: 24px;
+		background-color: #00B2EE;
+		color: #fff;
+		border-radius: 50%;
+		font-weight: bold;
+		line-height: 70px;
+		text-align: center;
+		position: absolute;
+		top: 10px;
+		left: 30px;
+	}
+	/* 导航栏 */
 	.nav {
 		width: 100%;
 		height: 8%;
+		padding: 20px 0px;
 		display: flex;
+		flex-direction: row;
 		align-items: center;
 		justify-content: center;
 	}
 	.nav a {
 		text-decoration: none;
 		font-size: 18px;
-		margin: 0 10px;
+		padding: 10px 30px;
+		color: #000;
+		font-size: 16px;
 	}
 	.nav a:first-of-type {
-		border-bottom: 1px solid #ccc;
+		background-color: #00B2EE;
+		color: #fff;
 	}
-	.content {
-		width: 100%;
-		height: 92%;
-		background-color: red;
-	}
-	#wrap {
-	  position: relative;
-	  z-index: 9999;
-	  border: 1px solid black;
-	  width: 500px;
-	  height: 120px;
-	  background-color: #ccc;
-	}
+	
 </style>

@@ -7,7 +7,8 @@
 		<div id="topright">
 			<img src="../assets/user.png" alt="用户">
 			<el-dropdown>
-				<span class="el-dropdown-link">{{name}}
+				<span class="el-dropdown-link" style="color: #fff;">
+					{{name}}
 					<i class="el-icon-arrow-down el-icon--right"></i>
 				</span>
 				<el-dropdown-menu slot="dropdown">
@@ -35,15 +36,19 @@
 			addAdmin: function(){
 				this.isaddShow = true;
 			},
+			//退出登录
 			logOff: function(){
-				
+				localStorage.removeItem("Flag")
+				this.$router.push({
+					name: 'Login',
+				});
 			},
 			
 		}
 	}
 </script>
 
-<style>
+<style scoped>
 	#top,
 	#topleft,
 	#topright {
@@ -52,19 +57,19 @@
 		justify-content: space-between;
 	}
 	#top {
-		width: 90%;
+		width: 97%;
 		height: 103px;
-		margin: 0px 5%;
+		padding: 0px 1.5%;
 		border-bottom: 3px solid #ccc;
+		background-color: rgba(49,49,49,.95);
+		color: #fff;
 	}
 	#topleft {
 		width: 400px;
 		padding: 7px 0px;
 	}
-	#topleft h1 {
-		line-height: 100px;
-	}
 	#topright {
+		margin-right: 80px;
 		width: 110px;
 		padding-top: 40px;
 		box-sizing: border-box;

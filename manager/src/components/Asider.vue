@@ -2,13 +2,24 @@
 	<div class='container'>
 		<div class='aside' >
 			<h3>选项列表</h3>
-			<router-link @click.native='changeBgc' :class='[leftView]' v-for='item in myList' :to='item.url'>{{item.text}}</router-link>
+			<router-link  :class='[leftView]' v-for='item in myList' :to='item.url'>{{item.text}}</router-link>
 		</div>
 		<router-view :class='[rightView]'></router-view>
 	</div>
 </template>
 
 <script>
+	import $ from 'jquery';
+	$(document).on("click",".leftView",function(){
+		$(this).css({
+			"backgroundColor":"#1b1b1b",
+			"color":"#fff"
+		});
+		$(this).siblings().css({
+			"backgroundColor":"#fff",
+			"color":"#1b1b1b"
+		});
+	});
 	export default {
 		name: 'Asider',
 		data() {
@@ -17,24 +28,19 @@
 				rightView: 'rightView',
 				myList: [
 					{url:'/goods',text:'商品管理'},
-					{url:'/main',text:'用户管理'},
+					{url:'/user',text:'用户管理'},
 				],
 				
 			};
 		},
-		methods: {
-			changeBgc: function(){
-				
-			}
-		}
+		
 	}
 </script>
 <style scoped>
 	/* 内容区域样式 */
 	.container {
-		padding:0 5%;
-		width: 90%;
-		height: 450px;
+		width: 100%;
+		min-height: 450px;
 		display: flex;
 		flex-direction: row;
 		
@@ -42,34 +48,41 @@
 	/* 侧边栏样式 */
 	.aside {
 		width: 15%;
-		height: 100%;
+		min-height: 450px;
 		display: flex;
 		flex-direction: column;
 		text-align: center;
-		background-color: pink;
+		border-right: 2px solid #1b1b1b;
+		margin: 10px 0px;
+		box-sizing: border-box;
 	}
 	.aside h3 {
-		width: 100%;
-		padding: 30px 0px;
+		line-height: 50px;
+		margin: 0 10%;
+		width: 80%;
+		background-color: #1b1b1b;
+		color: #fff;
+		
 	}
 	.aside .leftView {
-		width: 100%;
-		height: 60px;
+		box-sizing: border-box;
+		margin: 20px 10% 0px;
+		width: 80%;
+		height: 50px;
 		font-size: 16px;
-		line-height: 60px;
+		line-height: 50px;
 		text-decoration: none;
 		color: #000;
 		
 	}
 	.aside .leftView:hover {
-		background-color: #111111;
-		color: #fff;
+		border-bottom: 2px solid #1b1b1b;
 	}
 	/* 页面右部显示区域 */
 	.rightView {
 		width: 85%;
 		height: 100%;
-		background-color: skyblue;
+		position: relative;
 	}
 </style>
 
