@@ -29,6 +29,7 @@
 				myList: [
 					{url:'/goods',text:'商品管理'},
 					{url:'/user',text:'用户管理'},
+					{url:'/uploadimg',text:'图片管理'},
 				],
 				
 			};

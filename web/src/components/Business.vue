@@ -1,5 +1,7 @@
 <template>
 	<div>
+		<!-- 固定导航栏 -->
+		<topfixed></topfixed>
 		<!-- 顶部图片 -->
 		<img width="100%" src="https://img.zaozuo.com/dc75d5644718ec0a3610f3cdea226df7" alt="图片加载失败">
 		<div class="content">
@@ -88,12 +90,11 @@
 				<a href="#">联 络 我 们 ></a>
 			</div>
 		</div>
-		<my-footer></my-footer>
 	</div>
 </template>
 
 <script>
-	import Footer from './Footer';
+	import Topfixed from './Topfixed';
 	export default {
 		name: 'Business',
 		data() {
@@ -125,7 +126,8 @@
 			};
 		},
 		components: {
-			myFooter: Footer
+			
+			topfixed: Topfixed
 		}
 	}
 </script>
@@ -139,7 +141,7 @@
 		flex-direction: column;
 		position: absolute;
 		top: 125px;
-		bleft: 446px;
+		left: 446px;
 		font-weight: bold;
 		color: #000;
 	}

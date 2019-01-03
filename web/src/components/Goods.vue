@@ -1,22 +1,49 @@
 <template>
 	<div class="products">
-		<showgoods></showgoods>
+		<!-- <showgoods :typeid='typeid'></showgoods> -->
+		<showgoods :proList='proList'></showgoods>
+		<input type="hidden" :value='this.$route.query.typeid'>
 	</div>
 </template>
 <script>
+import axios from 'axios'
 	import Showgoods from './Showgoods'
 	import Footer from './Footer'
 	export default {
 		name: 'Goods',
 		data() {
 			return {
-				
+				typeid:0,
+				proList:[]
 			};
 		},
 		components: {
 			showgoods: Showgoods,
 			myfooter: Footer
-		}
+		},
+		watch:{
+			typeid:function(){
+				console.log('--------------------',this.typeid);
+				axios.get('http://localhost:9999/selectpros', {
+              params: {
+              typeid: this.typeid
+                  }
+          })
+          .then(response => {
+            console.log("get发送Ajax请求成功", response.data);
+            this.proList = response.data;
+          })
+          .catch(response => {
+            console.log("get发送Ajax请求失败", response);
+          });
+			}
+		},
+	updated: function() {
+			// (this.$route.query.typeid == undefined)? this.typeid=0 : this.typeid=this.$route.query.typeid;
+			this.typeid=this.$route.query.typeid
+			
+			}
+		
 	}
 </script>
 

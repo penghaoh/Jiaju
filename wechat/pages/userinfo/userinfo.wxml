@@ -1,0 +1,27 @@
+<!--pages/userinfo/userinfo.wxml-->
+<view class='wrapper'>
+      <view class='top'>
+        <text class='update' bindtap='updateUserMsg'>点击设置修改</text>
+      </view>
+      <form id='userForm' bindsubmit='updateFormSubmit' >
+        <label>
+          　用户名：<input   type='text' disabled='true' value='{{name}}' ></input> 
+        </label>
+        <label>
+          　　密码：<input type='password'  name='pwd'  bindinput='getPwd' value='{{pwd}}' ></input> 
+        </label>
+         <label >
+          确认密码：<input type='password' name='pwdSec'  bindinput='getPwdSec' ></input> 
+        </label>
+        <label>
+          　手机号：<input type='number' name='phone'  bindinput='getPhone' value='{{phone}}' ></input>
+        </label>
+        <label>
+          　　地址：<input type='text' name='address' bindinput='getAddress' value='{{address}}' ></input> 
+        </label>
+         <button form-type='submit' class='savebtn' disabled='{{saveflag}}'>确认修改</button> 
+      </form>
+      
+    
+    
+</view>

@@ -1,0 +1,52 @@
+/* pages/my/my.wxss */
+
+/* 头部用户信息 */
+#top {
+  height: auto;
+   display: flex;
+  flex-direction: row;
+  padding: 40rpx;
+  border-bottom: 8px solid #F7F7F7;
+}
+.headerimg {
+  border-radius: 50%;
+  display: block;
+  height: 200rpx;
+  width: 200rpx;
+  margin-right: 40rpx;
+}
+ #top .login {
+  display: inline-block;
+  height: 200rpx;
+  line-height: 200rpx;
+  color: #405F80;
+}
+.nameInfo {
+  color: #000;
+  margin-right: 20rpx;
+}
+
+/* 用户功能信息 */
+.options {
+  height: auto;
+  margin-left: 40rpx;
+}
+.options .oplist {
+  height: 120rpx;
+  border-bottom: 1px solid #ccc;
+  font-size: 14px;
+}
+.options .oplist text {
+  position: relative;
+  top: -12rpx;
+  left: 20rpx;
+}
+.options .oplist image {
+  width: 24px;
+  height: 24px;
+  margin-top: 30rpx; 
+}
+.options .oplist .righticon {
+  float: right;
+  margin-right: 40rpx;
+}

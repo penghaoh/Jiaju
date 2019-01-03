@@ -1,0 +1,158 @@
+<view id='container'>
+<!-- logo -->
+  <!-- <view class='logo'>
+      <image src='../../img/logoimg.png'></image>
+  </view> -->
+  <!-- 轮播图 -->
+  <swiper class='slideshow' indicator-dots="true" autoplay>
+    <swiper-item  wx:for="{{slideshow}}" wx:key="xx"  data-id = "{{item.id}}" data-typeId = "{{item.type_id}}">
+      <image src="{{item.src}}" class="slide-image" width="100%" height="350"/>
+    </swiper-item>
+  </swiper>
+  <!-- 轮播图下面的图标 -->
+  <view class='othericon'>
+    <image src='../../img/pic_1.png'></image>
+    <image src='../../img/pic_2.png'></image>
+    <image src='../../img/pic_3.png'></image>
+    <image src='../../img/pic_4.png'></image>
+  </view>
+   <!-- 一米定义产品 -->
+  <view class='definingpro' >
+    <text>一米定义产品</text>
+    <scroll-view scroll-x='true' class='scrollview'>
+      <view wx:for="{{defPro}}" wx:key="xx"  bindtap="getProInfo" data-id = "{{item.id}}"     data-typeId = "{{item.typeid}}">
+        <image class='hotmovieImg' src='{{item.imgurl}}'></image>
+        <view class='textdesc'>
+          <view class='texttop'>
+            <text>{{item.name}}</text>
+            <text>¥{{item.price}}</text>
+          </view>
+          <text class= 'goodsdesc'>{{item.descs}}</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <!-- 图片 -->
+  <view class='otherimg'>
+     <image src='https://img.zaozuo.com/2cb9bbff33943e7b566f8057759c0973?x-oss-process=image/format,jpg/interlace,1'></image>
+      <view class='bottomimg'>
+        <image src='https://img.zaozuo.com/28adc8125245e04f4ef18eb12da690e1?x-oss-process=image/format,jpg/interlace,1'></image>
+        <image src='https://img.zaozuo.com/0cc022f8e3453bf37c8a6b60dcbbe1d9?x-oss-process=image/format,jpg/interlace,1'></image>
+      </view>
+  </view>
+  <!-- 新品发布台 -->
+  <view class='definingpro' >
+    <text>新品发布台</text>
+    <scroll-view scroll-x='true' class='scrollview'>
+      <view wx:for="{{newPro}}" wx:key="xx"  bindtap="getProInfo" data-id = "{{item.id}}" data-typeId = "{{item.typeid}}">
+        <image class='hotmovieImg' src='{{item.imgurl}}'></image>
+        <view class='textdesc'>
+          <view class='texttop'>
+            <text>{{item.name}}</text>
+            <text>¥{{item.price}}</text>
+          </view>
+          <text class= 'goodsdesc'>{{item.descs}}</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <!-- 全品目录 -->
+  <view class='alltype'>全品目录</view>
+  <!-- 沙发 -->
+  <view class='protype'>
+      <view class='typetitle'>
+          <text>沙发</text>
+      </view>
+      <view class='prolist'>
+          <view class='showpro' wx:for="{{sofaList}}" wx:key="xx" bindtap="getProInfo" data-id = "{{item.id}}">
+            <image src='{{item.imgurl}}'></image>
+            <view class='textarea'>
+              <text>{{item.name}}\n</text>
+              <text>¥{{item.price}}\n</text>
+              <text>{{item.brand}}</text>
+            </view>
+          </view>
+          
+      </view>
+  </view>
+    <!-- 椅凳 -->
+  <view class='protype'>
+      <view class='typetitle'>
+          <text>椅凳</text>
+      </view>
+      <view class='prolist'>
+          <view class='showpro' wx:for="{{chairList}}" wx:key="xx" bindtap="getProInfo" data-id = "{{item.id}}">
+            <image src='{{item.imgurl}}'></image>
+            <view class='textarea'>
+             <text>{{item.name}}\n</text>
+             <text>¥{{item.price}}\n</text>
+             <text>{{item.brand}}</text>
+            </view>
+          </view>
+      </view>
+  </view>
+ <!-- 桌几 -->
+  <view class='protype'>
+      <view class='typetitle'>
+          <text>桌几</text>
+      </view>
+      <view class='prolist'>
+          <view class='showpro' wx:for="{{deskList}}" wx:key="xx" bindtap="getProInfo" data-id = "{{item.id}}">
+            <image src='{{item.imgurl}}'></image>
+            <view class='textarea'>
+             <text>{{item.name}}\n</text>
+             <text>¥{{item.price}}\n</text>
+             <text>{{item.brand}}</text>
+            </view>
+          </view>
+      </view>
+  </view>
+ <!-- 餐具 -->
+  <view class='protype'>
+      <view class='typetitle'>
+          <text>餐具</text>
+      </view>
+      <view class='prolist'>
+          <view class='showpro' wx:for="{{tablewareList}}" wx:key="xx" bindtap="getProInfo" data-id = "{{item.id}}">
+            <image src='{{item.imgurl}}'></image>
+            <view class='textarea'>
+             <text>{{item.name}}\n</text>
+             <text>¥{{item.price}}\n</text>
+             <text>{{item.brand}}</text>
+            </view>
+          </view>
+      </view>
+  </view>
+ <!-- 灯具 -->
+  <view class='protype'>
+      <view class='typetitle'>
+          <text>灯具</text>
+      </view>
+      <view class='prolist'>
+           <view class='showpro' wx:for="{{lampList}}" wx:key="xx" bindtap="getProInfo" data-id = "{{item.id}}">
+            <image src='{{item.imgurl}}'></image>
+            <view class='textarea'>
+             <text>{{item.name}}\n</text>
+             <text>¥{{item.price}}\n</text>
+             <text>{{item.brand}}</text>
+            </view>
+          </view>
+      </view>
+  </view>
+ <!-- 装饰  -->
+  <view class='protype'>
+      <view class='typetitle'>
+          <text>装饰</text>
+      </view>
+      <view class='prolist'>
+           <view class='showpro' wx:for="{{decorationList}}" wx:key="xx" bindtap="getProInfo" data-id = "{{item.id}}">
+            <image src='{{item.imgurl}}'></image>
+            <view class='textarea'>
+             <text>{{item.name}}\n</text>
+             <text>¥{{item.price}}\n</text>
+             <text>{{item.brand}}</text>
+            </view>
+          </view>
+      </view>
+  </view>
+</view>

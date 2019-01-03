@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/my/my",
+    "pages/userinfo/userinfo",
+    "pages/productstype/productstype",
+    "pages/purchase/purchase",
+    "pages/shopcar/shopcar",
+    "pages/login/login",
+    "pages/pay/pay"
+   
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#405F80",
+    "navigationBarTitleText": "一米-全世界为你设计",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#ccc",
+    "selectedColor": "#2c2c2c",
+    "borderStyle": "#CECECE",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "./img/index-off.png",
+        "selectedIconPath": "./img/index-on.png"
+      },
+      {
+        "pagePath": "pages/productstype/productstype",
+        "text": "全作品",
+        "iconPath": "./img/all-off.png",
+        "selectedIconPath": "./img/all-on.png"
+      },
+      {
+        "pagePath": "pages/shopcar/shopcar",
+        "text": "购物车",
+        "iconPath": "./img/car-off.png",
+        "selectedIconPath": "./img/car-on.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "./img/my-off.png",
+        "selectedIconPath": "./img/my-on.png"
+      }
+    ]
+  }
+}

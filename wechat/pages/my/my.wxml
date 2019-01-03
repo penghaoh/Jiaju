@@ -1,0 +1,34 @@
+<!--pages/my/my.wxml-->
+<!-- 顶部用户信息 -->
+<view id="top">
+    <image class='headerimg' src='https://img.zaozuo.com/4ed4f1a084647f44adb031a1b53a168b@!small'></image>
+    <text bindtap='login' wx:if="{{isShow}}" class='login'>请登录</text>
+    <block wx:else >
+         <text class='login nameInfo'>{{userInfo.name}}</text>
+         <text bindtap='loginout' class='login'>退出登录</text>
+    </block>
+</view>
+<!-- 个人用户功能 -->
+<view class='options'>
+    <view class='oplist' bindtap='getMyInfo'>
+      <image src='../../img/myinfo.png'></image>
+      <text>我的资料</text>
+      <image src='../../img/next.png' class='righticon'></image>
+    </view>
+		<view class='oplist'>
+			<image src='../../img/myadd.png'></image>
+			<text>我的订单</text>
+			<image src='../../img/next.png' class='righticon'></image>
+		</view>
+    <view class='oplist'>
+      <image src='../../img/mycoll.png'></image>
+      <text>我的收藏</text>
+      <image src='../../img/next.png' class='righticon'></image>
+    </view>
+    <view class='oplist'>
+      <image src='../../img/myadd.png'></image>
+      <text>我的地址</text>
+      <image src='../../img/next.png' class='righticon'></image>
+    </view>
+
+</view>

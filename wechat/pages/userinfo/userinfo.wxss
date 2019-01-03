@@ -1,0 +1,40 @@
+/* pages/userinfo/userinfo.wxss */
+.wrapper {
+  width: 90%;
+  margin: 0 auto;
+  height: auto;
+  font-size: 14px;
+}
+.top {
+  width: 100%;
+  height: 100rpx;
+  
+  position: relative
+}
+.top .update {
+  position: absolute;
+  top: 30rpx;
+  right: 30rpx;
+}
+#userForm {
+  width: 100%;
+  height: auto;
+}
+#userForm label {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 40rpx;
+  line-height: 80rpx;
+}
+#userForm input {
+  width: 70%;
+  height: 80rpx;
+  padding-left: 20rpx;
+  border-bottom: 1px solid #ccc;
+}
+.savebtn {
+  font-size: 14px;
+  color: #f40;
+  padding: 10rpx 0rpx;
+  font-weight: bold;
+}

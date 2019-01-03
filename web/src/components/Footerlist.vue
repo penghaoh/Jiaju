@@ -1,7 +1,7 @@
 <template>
 	<div class="footerlist">
 		<ul class="middle-info">
-			<li v-for='item in list'>
+			<li v-for='(item,index) in list' :key="index">
 				<a :href="item.herf">{{item.text}}</a>
 			</li>
 		</ul>

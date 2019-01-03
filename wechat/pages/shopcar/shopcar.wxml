@@ -1,0 +1,63 @@
+<!--pages/shopcar/shopcar.wxml-->
+<view id='shopCar'>
+    <block  wx:if="{{cartItems.length != 0}}">
+       <!-- 显示购物车数据 -->
+        <view class='top'>
+            <!-- 清空购物车 -->
+            <button  class='emptycart' bindtap="getNull" data-id="{{item.id}}">清空</button>
+        </view>
+        <view class='showList'>
+            <view class='showpro'  wx:for='{{cartItems}}' wx:key='{{xxx}}' data-proid='{{item.id}}'>
+              <!-- 多选框 -->
+              <view class='icon'>
+                <icon wx:if="{{item.selected}}" type="success" color="#405F80" size="20" bindtap="selectedCart" data-index="{{index}}" />
+                <icon wx:else type="circle" bindtap="selectedCart" size="20" data-index="{{index}}"/>
+              </view>
+                <!-- 商品图片 -->
+                <image src='{{item.image}}'></image>
+                <view class='proinfo'>
+                  <view class='proname'>{{item.name}}</view>
+                  <view class='color'>{{item.color}}|{{item.guige}}</view>
+                  <view class='probottom'>
+                      <text class='proprice'>¥{{item.price}}\n</text>
+                       <!-- 数量框 -->
+                      <view class="stepper">
+                        <!-- 减号 -->  
+                        <text class="{{minusStatus}}" bindtap="bindMinus" data-index="{{index}}">-</text>
+                        <!-- 数值 -->  
+                        <input type="number" bindinput='bindManual' value="{{item.num}}" />
+                        <!-- 加号 -->  
+                        <text class="normal" bindtap="bindPlus" data-index="{{index}}">+</text>
+                      </view>
+                  </view>
+                </view>
+                <!-- 删除 -->
+                <view class='delete'>
+                  <image src='../../img/del.png' bindtap='delPro' data-index="{{index}}"></image>
+                </view>
+            </view> 
+          <view class='fixbottom'>
+            <view class='checkbox'>
+              <icon wx:if="{{checkAll}}"  class="cart-icon" type="success" color="#405F80" size="20" bindtap="select" data-index="{{index}}" />
+              <icon wx:else type="circle"   class="cart-icon" size="20" bindtap="select" data-index="{{index}}"/>
+              <view class='checkAll'>全选</view>
+            </view>
+            <view class='total'>合计：{{total}}元</view>
+            <view class='settle' bindtap='goPay'>结算</view>
+          </view>
+            
+
+        </view>
+    </block>
+    <block wx:else >
+        <!-- 顶部 -->
+        <view class='nopro'>
+          <image src='../../img/bigcar.png'></image>
+          <text>购物车里没有商品</text>
+        </view>
+        <!-- 推荐商品 -->
+        <view id='recommend'>
+        </view>
+    </block>
+
+</view>

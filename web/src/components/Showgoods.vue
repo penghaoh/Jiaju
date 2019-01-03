@@ -1,32 +1,34 @@
 <template>
 	<div class="goodscomponent">
+		<!-- <p id="vals">{{proList}}</p> -->
+		<!-- <input type="hidden" v-model="typeid"> -->
 		<div class="goods" v-for='(item,index) in proList' :id="index" :key='index'>
 			<!-- 图片区域 -->
-			<a class="goodslink" href="#" >
-				<img :src="item.imgsrc" :alt="item.name" >
+			<a class="goodslink" href="#" @click="go(item.id)">
+				<img :src="item.imgurl" :alt="item.name" >
 				<!-- 鼠标滑过时出现的结构 -->
 				<div  class="hoveractive" style="opacity: 0;">
-					<p>{{item.desc}}</p>
+					<p>{{item.descs}}</p>
 				</div>
 			</a>
 			<!-- 文字展示区域 -->
 			<dl class="goodsdesc" >
 				<dd>
 					<h3>
-						<a href="3">{{item.name}}</a>
+						<a href="#">{{item.name}}</a>
 					</h3>
 				</dd>
 				<dt>
-					<i>{{item.price}}</i>
+					<i>¥{{item.price}}</i>
 				</dt>
-				<dt class="colorinfo">
+				<!-- <dt class="colorinfo">
 					<i>{{item.color}}</i>
-				</dt>
+				</dt> -->
 			</dl>
 			<!-- 鼠标滑过时出现的结构 -->
 			<dl class="otherinfo" style="opacity: 0;">
 				<dt>{{item.brand}}</dt>
-				<dd>{{item.location}}</dd>
+				<dd>{{item.origin}}</dd>
 			</dl>
 		</div>
 		<div class="clear"></div>
@@ -35,6 +37,7 @@
 
 <script>
 	import $ from 'jquery';
+	import axios from 'axios'
 	// 鼠标移入事件
 	$(document).on("mouseenter",".goods",function(){
 		$(this).find('.hoveractive').css("opacity",1);
@@ -51,19 +54,31 @@
 	});
 	export default {
 		name: 'Showgoods',
+		props:['proList'],
 		data() {
 			return {
 				index: '',
-				proList: [
-					{imgsrc:'https://img.zaozuo.com/0bea06252b039306181d2f7cb724e239@!small?x-oss-process=image/format,jpg/interlace,1',name:'造作软糖沙发®',price:'1999',color:'4色可选',desc:'抢眼形态与糖果色，空间的颜值担当',location:'Spain | Valencia',brand:'Yonoh Creative Studio'},
-					{imgsrc:'https://img.zaozuo.com/0bea06252b039306181d2f7cb724e239@!small?x-oss-process=image/format,jpg/interlace,1',name:'造作软糖沙发®',price:'1999',color:'4色可选',desc:'飞舞金属曲线，空间的颜值担当',location:'Spain | Valencia',brand:'Yonoh Creative Studio'},
-					{imgsrc:'https://img.zaozuo.com/0bea06252b039306181d2f7cb724e239@!small?x-oss-process=image/format,jpg/interlace,1',name:'造作软糖沙发®',price:'1999',color:'4色可选',desc:'抢眼形态与糖果色，空间的颜值担当',location:'Spain | Valencia',brand:'Yonoh Creative Studio'},
-					{imgsrc:'https://img.zaozuo.com/0bea06252b039306181d2f7cb724e239@!small?x-oss-process=image/format,jpg/interlace,1',name:'造作软糖沙发®',price:'1999',color:'4色可选',desc:'抢眼形态与糖果色，空间的颜值担当',location:'Spain | Valencia',brand:'Yonoh Creative Studio'},
-					{imgsrc:'https://img.zaozuo.com/0bea06252b039306181d2f7cb724e239@!small?x-oss-process=image/format,jpg/interlace,1',name:'造作软糖沙发®',price:'1999',color:'4色可选',desc:'抢眼形态与糖果色，空间的颜值担当',location:'Spain | Valencia',brand:'Yonoh Creative Studio'},
-				]
-				
-			};
-		}
+				typeids:'',
+				// proLists:[]	
+			}
+		},
+		
+		methods:{
+			go(id){
+				this.$router.push({ path: 'purchase', query: { id: id}})
+			// 	this.$router.push('purchase');
+			 }
+		},
+		created:function(){
+			    // this.proLists = $('#vals').html()
+				// console.log(this.proLists)
+		},
+		updated:function(){
+			
+		},
+		watch:{
+	
+		},
 	}
 </script>
 
@@ -114,6 +129,8 @@
 		color: #707070;
 	}
 	.goods .hoveractive {
+		width: 100%;
+		height: 100%;
 		background-color: transparent;
 		opacity:0;
 		position: absolute;
@@ -123,13 +140,15 @@
 	.goods .hoveractive  p{
 		z-index: 999;
 		margin: 30% 20%;
+		width: 60%;
 		height: 90px;
 		border: 5px solid #535353;
 		font-size: 15px;
-		line-height: 21px;
+		line-height: 23px;
 		color: #373737;
-		text-align: center;
+		text-align: left;
 		display: table;
+		box-sizing: border-box;
 		
 	}
 	.otherinfo {

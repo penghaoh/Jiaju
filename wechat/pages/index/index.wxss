@@ -1,0 +1,196 @@
+/**index.wxss**/
+#container {
+  width:100%;
+  height: auto;
+}
+/* logo样式 */
+.logo {
+  margin: 0 auto 10px;
+}
+.logo,
+.logo image {
+  width: 94px;
+  height: 22px;
+}
+/* 轮播图 */
+.slideshow {
+  width: 100%;
+  height: 400rpx;
+}
+.slide-image {
+ min-width: 100%;
+ height: 350rpx;
+}
+ /* 轮播图下面的图标 */
+.othericon {
+    width: 100%;
+    height: 200rpx;
+    display: flex;
+    flex-direction: row;
+    padding: 20rpx 0;
+    justify-content: space-between;
+    border-bottom: 5px solid #F7F7F7;
+}
+.othericon image {
+    width: 140rpx;
+    height: 200rpx;
+    margin: 0 20rpx;
+}
+/*  一米定义产品 */
+.definingpro {
+  width: 100%;
+  height: auto;
+  margin: 20rpx 0 40rpx 20rpx;
+}
+.definingpro>text {
+  width: 100%;
+  height: 56rpx;
+  display: block;
+  line-height: 56rpx;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+.scrollview {
+  width: 100%;
+  height: auto;
+  white-space: nowrap;
+}
+.scrollview view {
+  display: inline-block;
+  margin-right: 20rpx;
+  width: 400rpx;
+  height: 468rpx;
+  position: relative;
+}
+.scrollview  .hotmovieImg {
+  max-width: 100%;
+  height: 340rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.textdesc {
+  padding-left: 10rpx;
+  position: absolute;
+  top: 340rpx;
+  left: 0;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.textdesc .texttop {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  height: 36px;
+  font-size: 14px;
+  line-height: 18px;
+}
+.textdesc .texttop text:nth-of-type(2) {
+  font-size: 10px;
+  padding-right: 10rpx;
+}
+.scrollview .textdesc .goodsdesc {
+  width: 100%;
+  font-size: 10px;
+  line-height: 16px;
+  color: #ABABAB;
+  display: block;
+  height: 32px;
+  
+}
+/* 图片 */
+.otherimg {
+  height: auto;
+  width: 96%;
+  margin: 0px auto 40rpx;
+}
+.otherimg>image {
+  width: 100%;
+  height: 260rpx;
+}
+.bottomimg {
+  width: 100%;
+  height: 260rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.otherimg .bottomimg image {
+  width: 49.5%;
+  height: 260rpx;
+}
+/* 全品目录 */
+.alltype {
+  height: 100rpx;
+  margin: 40rpx 0px;
+  line-height: 100rpx;
+  font-size: 22px;
+  font-weight: bold;
+
+}
+/* 商品分类 */
+.protype {
+    height: auto;
+    margin-bottom: 20rpx;
+}
+.protype .typetitle {
+    font-size: 22px;
+    letter-spacing: 15rpx;
+    text-align: center;
+    font-weight: bold;
+    line-height: 240rpx;
+    height: 240rpx;
+    color: #fff;
+    background-color: #ccc;
+    background-size: cover;
+    background-position: 0rpx -100rpx;
+    background-image: url('https://img.zaozuo.com/8fb87cd350dd6c5992f7fc3eee92a81f')
+}
+.protype .prolist {
+  height: auto;
+}
+.showpro {
+  display: inline-block;
+  margin: 20rpx 3%;
+  width: 44%;
+  height: 500rpx;
+  white-space: nowrap;
+  position: relative;
+}
+.showpro image {
+  display: block;
+  width: 100%;
+  height: 350rpx;
+  background-color: pink;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.showpro .textarea {
+  display: block;
+  width: 100%;
+  height: 150rpx;
+  position: absolute;
+  top: 350rpx;
+  left: 0;
+  text-align: center;
+  /* width: 100%; */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.showpro .textarea text:first-of-type {
+    font-size: 14px;
+}
+.showpro .textarea text:nth-of-type(2) {
+    font-size: 12px;
+}
+.showpro .textarea text:nth-of-type(3) {
+    font-size: 12px;
+    color:#ABABAB;
+    line-height: 16px;
+}
+

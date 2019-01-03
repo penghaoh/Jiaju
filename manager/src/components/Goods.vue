@@ -2,7 +2,7 @@
 	<div>
 		<div class="title">商品管理信息</div>
 		<div class="nav">
-			<router-link :to="{path:'/allgoods',query:{typeid:'0'}}">全部</router-link>
+			<router-link :to="{path:'/all',query:{typeid:'0'}}">全部</router-link>
 			<router-link  v-for='(item,index) in typeList'  :to="{path:item.url,query:{typeid:item.type_id}}">{{item.name}}</router-link>
 		</div>
 		<router-view></router-view>

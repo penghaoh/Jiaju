@@ -79,7 +79,6 @@
 </style>
 
 <script>
-	// import {setCookie} from '../../util/utilCookie';
 	import axios from 'axios';
 	export default {
 		data() {
@@ -115,17 +114,13 @@
 					console.log(response.data);
 					if (response.data == 'ok') {
 						console.log("------")
-// 						//设置Vuex登录标志为true，默认userLogin为false
-// 						this.$store.dispatch("userStatus", true);
-// 						//Vuex在用户刷新的时候userLogin会回到默认值false，所以我们需要用到HTML5储存
-// 						//我们设置一个名为Flag，值为isLogin的字段，作用是如果Flag有值且为isLogin的时候，证明用户已经登录了。
-// 						localStorage.setItem("Flag", "isLogin");
+							//我们设置一个名为Flag，值为isLogin的字段，作用是如果Flag有值且为isLogin的时候，证明用户已经登录了。
+							sessionStorage.setItem("Flag", "isLogin");
+							sessionStorage.setItem("userName", this.users.name);
+
 					console.log("xxxx")
 						this.$router.push({
 							name: 'Main',
-							params: {
-								name: this.users.name
-							}
 						});
 
 						this.showTishi = false;

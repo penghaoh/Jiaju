@@ -20,7 +20,7 @@
 					<template slot-scope="scope">
 						<el-popover trigger="hover" placement="top">
 							<p>用户名: {{ scope.row.name }}</p>
-							<p>密码: {{ scope.row.pwd }}</p>
+							<p>手机号: {{ scope.row.phone }}</p>
 							<div slot="reference" class="name-wrapper">
 								<el-tag size="medium">{{ scope.row.name }}</el-tag>
 							</div>
@@ -54,20 +54,22 @@
 				</el-pagination>
 		</div>
 		<!-- 修改用户信息表格 -->
-		<form action="updateUserInfo" v-show="isShow" id="updatefrom" @submit.prevent="submit" >
-			<h2>用户信息修改</h2>
-				<label>用户ID:　<input type="text" v-model="userInfo.id" disabled></label>
-				<br />
-				<label>用户名:　<input type="text" v-model="userInfo.name" disabled></label>
-				<br />
-				<label>地　址:　<input type="text" v-model="userInfo.address"></label>
-				<br />
-				<div class="btnarea">
-					<button type="submit">修改</button>
-					<button @click="cancel()">退出</button>
-				</div>
-				<p>{{prompt}}</p>
-		</form>
+		<div class="updatapage" v-show="isShow">
+				<form action="updateUserInfo"  id="updatefrom" @submit.prevent="submit" >
+					<h2>用户信息修改</h2>
+						<label>用户ID:　<input type="text" v-model="userInfo.id" disabled></label>
+						<br />
+						<label>用户名:　<input type="text" v-model="userInfo.name" disabled></label>
+						<br />
+						<label>地　址:　<input type="text" v-model="userInfo.address"></label>
+						<br />
+						<div class="btnarea">
+							<button type="submit">修改</button>
+							<button @click="cancel()">退出</button>
+						</div>
+						<p>{{prompt}}</p>
+				</form>
+		</div>
 		
 	</div>
 
@@ -186,6 +188,15 @@
 		margin: 10px 3%;
 	}
 	/* 修改用户表 */
+	.updatapage {
+		position: fixed;
+		top: 0;
+		right: 0;
+		width: 100%;
+		height: 100%;
+		background-color: #eee;
+
+	}
 	#updatefrom {
 		position: absolute;
 		top:0;

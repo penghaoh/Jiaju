@@ -13,6 +13,7 @@
 	import Top from './Top';
 	import Navwrap from './Navwrap';
 	import Footer from './Footer';
+	import $ from 'jquery';
 	export default {
 		name: 'Home',
 		data() {
@@ -24,6 +25,11 @@
 			top: Top,
 			navwrap: Navwrap,
 			myfooter: Footer
+		},
+		created:function(){
+			sessionStorage.setItem('num',0);
+			var goodscomponent = $('.goodscomponent');
+			console.log(goodscomponent)
 		}
 	}
 </script>

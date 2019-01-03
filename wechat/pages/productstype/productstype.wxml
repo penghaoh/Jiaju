@@ -1,0 +1,26 @@
+<!--pages/cinema/cinema.wxml-->
+<view class='mycontainer'>
+    <scroll-view scroll-x class='scrollview'>
+      <view bindtap="getProList" data-typeId = "0">全部</view>
+      <view wx:for="{{typeList}}" wx:key="xx"  bindtap="getProList" data-typeId = "{{item.type_id}}">
+        {{item.name}}
+      </view>
+    </scroll-view>
+    <!-- 搜索框 -->
+    <view id='header'>
+      <text>商品</text>
+      <input type='text' placeholder='请输入商品名称信息' bindinput='getsearch'></input>
+      <icon type="search" bindtap='getsearchList'></icon>
+    </view>
+    <!-- 商品显示 -->
+    <view class='proList'>
+      <view class='proMsg' wx:for = "{{proList}}" wx:key = "xx">
+        <image class='proImg' bindtap='getProInfo' src='{{item.imgurl}}' data-id="{{item.id}}"></image>
+        <view class='proInfo'>
+          <text>{{item.name}}</text>
+          <text>{{item.descs}}</text>
+          <button>¥{{item.price}}</button>
+        </view>
+      </view>
+    </view>
+</view>

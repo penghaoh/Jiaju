@@ -60,7 +60,7 @@
 			};
 		},
 		components: {
-			footerlist: Footerlist
+			'footerlist': Footerlist
 		}
 	}
 </script>

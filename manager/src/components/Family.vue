@@ -68,7 +68,7 @@
 	</div>
 	<!-- 增加商品表格 -->
 	<div class="fromarea"  v-if="flag2">
-		<form action id="wrap">
+		<form action='' id="wrap">
 			<h2>增加产品信息</h2>
 				<label>产品分类:　<input type="text" name="typeid" v-model="pro.typeid"></label>
 				<br />
@@ -76,13 +76,13 @@
 				<br />
 				<label>产品价格:　<input type="text" name="price" v-model="pro.price"></label>
 				<br />
-				<label>产品图片:　<input type="text" name="imgurl" v-model="pro.imgurl"></label>
-				<br />
 				<label>产品品牌:　<input type="text" name="brand" v-model="pro.brand"></label>
 				<br />
 				<label>产品产地:　<input type="text" name="origin" v-model="pro.origin"></label>
 				<br />
 				<label>产品描述:　<input type="text" name="descs" v-model="pro.descs"></label>
+				<br />
+				<label>产品图片:　<input type="text" name="imgurl"  v-model="pro.imgurl"></label>
 				<br />
 				<div class="btnarea">
 					<button @click="addpro">提交</button>
@@ -102,8 +102,15 @@
 			<br />
 			<label>产品价格:　<input type="number" name="price" v-model="prop.price"></label>
 			<br />
-			<!-- 描述 <input type="text" name="desc" v-model="prop.desc"> -->
-			<!-- <input type="button" value="修改" @click="proupdate"> -->
+			<label>产品描述:　<input type="text" name="descs" v-model="prop.descs"></label>
+			<br />
+			<label>产品产地:　<input type="text" name="origin" v-model="prop.origin"></label>
+			<br />
+			<label>产品品牌:　<input type="text" name="brand" v-model="prop.brand"></label>
+			<br />
+			<label>产品图片:　<input type="" name="imgurl" v-model="prop.imgurl"></label>
+			<br />
+				
 			<div class="btnarea">
 				<button @click="proupdate">提交</button>
 				<button @click="cancalupdate">取消</button>
@@ -278,8 +285,12 @@
 					axios.get("http://localhost:9999/proupdate", {
 							params: {
 								id: this.prop.id,
+								name: this.prop.name,
 								price: this.prop.price,
-								name: this.prop.name
+								descs: this.prop.descs,
+								origin: this.prop.origin,
+								brand: this.prop.brand,
+								imgurl: this.prop.imgurl
 							}
 						}).then(response => {
 							console.log("get发送Ajax请求成功", response.data);
@@ -398,6 +409,15 @@
 		width: 33%;
 	}
 	/* 增加商品表格 */
+	.fromarea{
+		position: fixed;
+		top: 0;
+		right: 0;
+		width: 100%;
+		height: 100%;
+		background-color: #eee;
+	}
+	
 	#wrap,
 	#updatepro {
 		position: absolute;
@@ -406,8 +426,8 @@
 		right: 0;
 		bottom: 0;
 		margin: auto;
-		width: 800px;
-		height: 520px;
+		width: 600px;
+		height: 500px;
 		border-radius: 5px;
 		border: 1px solid #ccc;
 		background-color: #fff;
@@ -415,25 +435,27 @@
 		padding:0px 20px 20px;
 		box-sizing: border-box;
 		z-index: 999;
-		font-size: 16px;
+		font-size: 14px;
 	}
 	#wrap label,
 	#updatepro label{
 		display: block;
 		width: 100%;
 		height: 30px;
+		line-height: 30px;
 		margin-bottom: 5px;
 		display: flex;
 		flex-direction: row;
 	}
+	
 	#wrap label input,
 	#updatepro label input {
 		width: 80%;
-		height: 40px;
+		height: 29px;
 		border: none;
 		border-bottom: 1px solid #ccc;
 		padding: 0 10px;
-		
+		outline:none;
 	}
 	#wrap p,
 	#updatepro p {
@@ -459,7 +481,7 @@
 		border: none;
 		color: #fff;
 		line-height: 40px;
-		font-size: 16px;
+		font-size: 14px;
 		border-radius: 5px;
 	}
 

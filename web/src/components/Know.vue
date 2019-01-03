@@ -1,5 +1,7 @@
 <template>
 	<div>
+		<!-- 固定导航栏 -->
+		<topfixed></topfixed>
 		<!-- 顶部图片 -->
 		<img width="100%" src="https://img.zaozuo.com/cfa1a540f37f471a0fb2397bfd082ff6?x-oss-process=image/format,jpg/quality,q_100"
 		 alt="图片加载视频">
@@ -100,12 +102,11 @@
 			<img width="100%" src="https://img.zaozuo.com/64b71de01933330f64f1c2bb33496bf3?x-oss-process=image/format,jpg/quality,q_100" alt="基金">
 			<img width="100%" src="https://img.zaozuo.com/ae2597694580aa5b6e065f3d3c2373d7?x-oss-process=image/format,jpg/quality,q_100" alt="合作品牌">
 		</div>
-		<my-footer></my-footer>
 	</div>
 </template>
 
 <script>
-	import Footer from './Footer';
+	import Topfixed from './Topfixed';
 	export default {
 		name: 'Know',
 		data() {
@@ -132,7 +133,7 @@
 			}
 		},
 		components: {
-			myFooter: Footer
+			topfixed: Topfixed
 		}
 		
 	}
@@ -171,8 +172,8 @@
 		color: #fff;
 		font-size: 25px;
 		position: absolute;
-		right: 338px;
-		top: 218px;
+		right: 323px;
+		top: 208px;
 		z-index: 10;
 		opacity: 0.8;
 		display: none;
@@ -205,13 +206,13 @@
 		width: 76.5%;
 		height: 240px;
 		position: absolute;
-		left: 160px;
-		top: 224px;
+		left: 156px;
+		top: 214px;
 		display: flex;
 	}
 	.container a {
 		width: 16%;
-		margin-left: 53px;
+		margin-left: 51px;
 		border: 0.4rem solid #d2d2d2;
 		box-sizing: border-box;
 	}

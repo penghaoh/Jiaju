@@ -20,7 +20,7 @@
 		<!-- 商品分类展示区 -->
 		<div id="displayarea">
 			<h2>全品目录/签名设计正品</h2>
-			<displayarea v-for='item in goodsType' :title='item.title'></displayarea>
+			<displayarea v-for='(item,index) in goodsType' :title='item.title' :orders='index+1' :key="index"></displayarea>
 		</div>
 		<!-- 评价晒单 -->
 		<homeremark></homeremark>

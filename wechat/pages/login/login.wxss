@@ -1,0 +1,108 @@
+/* pages/login/login.wxss */
+/* 顶部登录注册按钮 */
+.topbtn {
+  margin: 0 auto;
+  width: 50%;
+  height: 45px;
+  margin-bottom: 50rpx;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 16px;
+  font-weight: bold;
+}
+.topbtn .btn {
+  text-align: center;
+  line-height: 45px;
+  width: 45%;
+  height: 45px;
+}
+#line {
+  width: 2px;
+  height: 17px;
+  margin: 16px 0px;
+  background-color: #ccc;
+}
+/* 注册界面 */
+.mycontainer,
+#loginPage {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.content {
+  font-size: 14px;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 100rpx;
+}
+.content>view {
+  border-bottom: 1px solid #eee;
+  box-sizing: border-box;
+}
+#loginForm,
+#registerForm {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 0rpx;
+  border: none;
+}
+.group {
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  padding: 10rpx;
+  white-space: nowrap;
+  margin-bottom: 30rpx;
+}
+.group image {
+  width: 64rpx;
+  height: 64rpx;
+  margin-right: 20rpx;
+  position: relative;
+  top: -15rpx;
+  left: 0;
+}
+.group input {
+  display: inline-block;
+  width: 80%;
+  height: 100%;
+  border: none;
+}
+.loginbtn {
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  background-color: #000;
+  margin-bottom: 50rpx;
+  color: #fff;
+  font-size: 14px;
+  line-height: 40px;
+}
+.mytext {
+  margin-bottom: 50rpx;
+  width: 100%;
+  height: 30px;
+  font-size: 12px;
+  margin-top: 10px;
+  text-align: center;
+}
+.blue {
+  color: skyblue;
+}
+
+/* 登录界面 */
+#loginput {
+  margin-top: 50rpx;
+}
+/* 忘记密码 */
+.forgrtPwd {
+  text-decoration: underline;
+  color: 	#6495ED;
+}

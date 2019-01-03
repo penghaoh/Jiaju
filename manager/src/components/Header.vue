@@ -8,7 +8,7 @@
 			<img src="../assets/user.png" alt="用户">
 			<el-dropdown>
 				<span class="el-dropdown-link" style="color: #fff;">
-					{{name}}
+					{{userName}}
 					<i class="el-icon-arrow-down el-icon--right"></i>
 				</span>
 				<el-dropdown-menu slot="dropdown">
@@ -24,28 +24,27 @@
 		name: 'Header',
 		data() {
 			return {
-				name : this.$route.params.name,
 				isaddShow: false,
 				isShow: false,
+				userName:''
 			};
 		},
 		methods: {
-			getAdminInfo:function(){
-				this.isShow = true;
-			},
-			addAdmin: function(){
-				this.isaddShow = true;
-			},
-			//退出登录
 			logOff: function(){
-				localStorage.removeItem("Flag")
+				sessionStorage.removeItem("Flag")
+				sessionStorage.removeItem("userName")
 				this.$router.push({
 					name: 'Login',
 				});
 			},
 			
-		}
+		},
+	  created: function() {
+	  	console.log(sessionStorage.getItem('userName'));
+		this.userName = sessionStorage.getItem('userName');
+	  }
 	}
+	
 </script>
 
 <style scoped>

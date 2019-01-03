@@ -1,7 +1,7 @@
 <template>
 	<div id="navwrap">
 		<div class="navwrap-list">
-			<router-link v-for='(item,index) in navwrapList' :to="item.tourl" :key='index'>{{item.text}}</router-link>
+			<router-link v-for='(item,index) in navwrapList' :to="{path:item.tourl,query:{typeid:index}}" :key="index">{{item.text}}</router-link>
 		</div>
 		<router-view></router-view>
 	</div>
