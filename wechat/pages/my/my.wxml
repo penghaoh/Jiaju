@@ -10,13 +10,8 @@
 </view>
 <!-- 个人用户功能 -->
 <view class='options'>
-    <view class='oplist' bindtap='getMyInfo'>
-      <image src='../../img/myinfo.png'></image>
-      <text>我的资料</text>
-      <image src='../../img/next.png' class='righticon'></image>
-    </view>
 		<view class='oplist'>
-			<image src='../../img/myadd.png'></image>
+			<image src='../../img/order.png'></image>
 			<text>我的订单</text>
 			<image src='../../img/next.png' class='righticon'></image>
 		</view>
@@ -25,9 +20,19 @@
       <text>我的收藏</text>
       <image src='../../img/next.png' class='righticon'></image>
     </view>
+    <view class='oplist' bindtap='getMyInfo'>
+      <image src='../../img/myinfo.png'></image>
+      <text>我的资料</text>
+      <image src='../../img/next.png' class='righticon'></image>
+    </view>
     <view class='oplist'>
       <image src='../../img/myadd.png'></image>
       <text>我的地址</text>
+      <image src='../../img/next.png' class='righticon'></image>
+    </view>
+    <view class='oplist'>
+      <image src='../../img/about.png'></image>
+      <text>关于一米</text>
       <image src='../../img/next.png' class='righticon'></image>
     </view>
 

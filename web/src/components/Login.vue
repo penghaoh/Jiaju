@@ -3,7 +3,6 @@
 <div class="wrap">
      <!-- <top></top> -->
     <div class="login">
-       
         <div class="login-inner">
             <!-- <img class="title-logo" src="../assets/logo2.png"> -->
             <div class="login-form">
@@ -44,6 +43,7 @@
             </div>
         </div>
     </div>
+		<!-- 注册 -->
     <div class="regst" v-if="flag">
         <div class="cancle" @click="cancle">x</div>
         <div class="regst-cont">

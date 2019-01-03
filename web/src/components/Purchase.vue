@@ -1,10 +1,8 @@
 <template>
   <div class="wrap">
-    <!-- <top></top> -->
-    <!-- <navwrap></navwrap> -->
     <div class="goodsnum">{{num}}</div>
     <div class="proshow">
-      <img :src="mydata.imgurl" alt>
+      <img :src="mydata.imgurl" alt='#'>
     </div>
     <div class="desc">
       <p class="neames">{{mydata.name}}｜{{mydata.brand}}</p>
@@ -74,10 +72,11 @@ export default {
   },
   methods: {
     handleChange(value) {
-      console.log(value);
+      // console.log(value);
       this.prices = this.mydata.price * this.num1;
     },
-    adtocar(){
+    adtocar:function(){
+			console.log('==========adtocar=======')
       if(!sessionStorage.getItem('name')){
         if(confirm('您还未登陆，是否进行登陆')){
           this.$router.push('login')
@@ -108,13 +107,6 @@ export default {
         console.log("get发送Ajax请求失败", response);
       });
       }
-      // sessionStorage.getItem('num') += this.num1
-    //  console.log($('.goodsnum').val()) 
-    //  $('.goodsnum').val(this.num1 + parseInt($('.goodsnum').val()));
-  // this.indexUrl = localStorage.getItem('indexUrl');
-  // console.log(localStorage.getItem('indexUrl'))
-  // localStorage.setItem('num',$('.goodsnum').val());
-  // console.log(localStorage.getItem('num'))
     }
   },
   created: function() {
@@ -142,8 +134,8 @@ export default {
 		height: 15px;
 		border:1px solid black;
 		position: absolute;
-    top: 74px;
-    right: 94px;
+    top: -44px;
+    right: 156px;
 		
 		background-color: red;
 		color: #fff;
@@ -186,9 +178,14 @@ export default {
 }
 .desc .neames,
 .desc .price {
+	font-size: 20px;
+	font-weight: bold;
   text-align: left;
-  margin-left: 4px;
+  margin: 4px;
   font-family: siyuan, "Microsoft YaHei", sans-serif;
+}
+.desc .price {
+	margin-bottom: 20px;
 }
 /* .desc span{
 	text-align: left;
@@ -206,19 +203,18 @@ export default {
   line-height: 50px;
 }
 .middl {
-  /* position: relative; */
+  position: relative;
+	margin-top: 20px;
 }
 .middl .proms {
   position: absolute;
   width: 250px;
   height: 120px;
-  top: 1752px;
-  left: 620px;
-  /* bottom: 0;
+	top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
-  margin: auto; */
-  /* border: #fff 1px solid; */
+  margin: auto;
 }
 .middl .proms div {
   width: 120px;

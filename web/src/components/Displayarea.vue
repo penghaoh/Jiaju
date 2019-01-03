@@ -35,20 +35,14 @@
 			}
 		},
 		created:function(){
-			console.log(this.typeid)
-			// var order = $('.orders').html();
-			// console.log(order)
-			//  var oreder = document.getElementsByClassName('orders');
-			//  console.log(oreder)
-			//  var len = oreder.length;
-			
+			// console.log(this.typeid)
 				 axios.get('http://localhost:9999/selectpros', {
               params: {
                        typeid: this.typeid
                   }
           })
           .then(response => {
-            console.log("get发送Ajax请求成功", response.data);
+            // console.log("get发送Ajax请求成功", response.data);
             this.proList = response.data;
           })
           .catch(response => {

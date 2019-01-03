@@ -1,24 +1,8 @@
 <template>
 	<div id="top">
-		<!-- 网站顶部导航 -->
-		<div class="topinfo">
-			<!-- <ul class="toplist">
-				<li>
-					<a href="#">了解造作</a>
-				</li>
-				<li>
-					<a href="#">商业合作</a>
-				</li>
-				<li>
-					<a href="#">{{name}}</a>
-				</li>
-			</ul> -->
-			<router-link v-for='(item,index) in linkList' :to="item.to" :key='index'>{{item.text}}</router-link>
-		</div>
+		<topfixed id='top-fixed'></topfixed>
 		<!-- 网站商品分类导航 -->
 		<div class="title">
-			<!-- <h1>造作ZAOZUO</h1> -->
-			<!-- <img src="../assets/logo.png" alt="一米官网"> -->
 			<div class="login-wrap">
 				<div class="son" @click="touser" @mouseover="enter1" @mouseleave="out1">
 					<div class="list-select" v-if="flag">
@@ -33,33 +17,17 @@
 					</div>
 				</div>
 				<div class="son" @click="go">
-
 				</div>
-				
 			</div>
 			
 		</div>
-		<!-- 头部固定导航  198px-->
-		<!-- <div class="fixedTop">
-			abcgdcidcklf
-		</div> -->
-		<topfixed id='top-fixed'></topfixed>
+		
 	</div>
 </template>
 
 <script>
 import Topfixed from './Topfixed';
-	import $ from 'jquery'
-	 $(document).ready(function() {
-            $(window).scroll(function(){
-                var scrollPos=$(window).scrollTop();
-                if(scrollPos >='198'){
-					$(".fixedTop").show()
-                }else{
-					$(".fixedTop").hide()
-                }
-            });
-        });
+	
 
 	export default {
 		name: 'Top',
@@ -147,11 +115,12 @@ import Topfixed from './Topfixed';
 	}
 </script>
 
-<style>
+<style scoped>
 	#top {
 		width: 100%;
-		height: auto;
+		height: 106px;
 		color: #fff;
+		position: relative;
 	}
 	/* 网站顶部导航 */
 	#top .topinfo {
@@ -183,39 +152,34 @@ import Topfixed from './Topfixed';
 		border-bottom: 1px solid #fff;
 	}
 	
-	/* 网站商品分类导航 */
+	/* 用户名/购物车板块 */
 	#top .title {
 		background: #fff;
-		width: 1035px;
-		/* height: 86px; */
-		position: relative;
+		width: 90%;
+		height: 56px;
 		margin: 0 auto;
-		/* padding-top: 40px; */
+		margin-top: 50px;
+		position: relative;
 	}
-	.title img {
-		width: 152px;
-		height: 86px;
-	}
-	/* 用户名/购物车板块 */
 	.login-wrap {
-		width: 150px;
+		width: 95px;
 		height: 36px;
 		position: absolute;
-		right: -170px;
-		top: 33px;
+		right: 100px;
+		top: 10px;
 		display: flex;
 		/* border: 1px solid black; */
 	}
 	.login-wrap .son {
-		width: 49%;
-		height: 34px;
+		width: 30px;
+		height: 30px;
 			/* border: 1px solid black; */
 	}
 	.login-wrap .son:nth-of-type(1){
 		background-image: url('https://img.zaozuo.com/3bcb4add67f393bebb306aa55256415c');
 		background-repeat: no-repeat;
-		background-size: 34px 34px;
-		margin-right: 20px;
+		background-size: 100%;
+		margin-right: 35px;
 	}
 	.login-wrap .son:nth-of-type(1):hover {
 		background-image: url('https://img.zaozuo.com/9f64cd4e8f3142c1cf18c3231045cbc4');
@@ -223,21 +187,10 @@ import Topfixed from './Topfixed';
 	.login-wrap .son:nth-of-type(2){
 		background-image: url('https://img.zaozuo.com/1363eda9399f6bae961b8d5058ee05da');
 		background-repeat: no-repeat;
-		background-size: 34px 34px;
+		background-size: 100%;
 	}
 	.login-wrap .son:nth-of-type(2):hover {
 		background-image: url('https://img.zaozuo.com/265d0a87879cd9920673e968429acdba');
-	}
-	
-	/* 头部固定布局导航 */
-	.fixedTop {
-		width: 100%;
-		height: 50px;
-		position: fixed;
-		top: 0;
-		left: 0;
-		z-index: 999;
-		background: #313131;
 	}
 	
 	.list-select ul{

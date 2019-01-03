@@ -32,13 +32,14 @@
 	#navwrap {
 		width: 100%;
 		height: auto;
+		position: relative;
 		
 	}
 	/* 商品列表导航模块 */
 	#navwrap .navwrap-list {
 		width: 1035px;
 		height: 36px;
-		margin: 36px auto 0;
+		margin: 0 auto;
 	}
 	#navwrap .navwrap-list a {
 		display: inline-block;

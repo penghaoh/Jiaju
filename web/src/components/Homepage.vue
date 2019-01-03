@@ -11,8 +11,46 @@
 		<!-- 信息 -->
 		<div class="storeinfo">
 			<div class="info-context">
-				<div>
-					<div>
+				<div class="home-wrap">
+					<div class="wrap-img"></div>
+					<div class="wrap-title">
+						<p>27国/百位设计大师的</p>
+						<p>签名正品</p>
+					</div>
+				</div>
+				<div class="home-wrap">
+					<div class="wrap-img"></div>
+					<div class="wrap-title">
+						<p>100+精工大厂/100%手检</p>
+						<p>欧标质造</p>
+					</div>
+				</div>
+				<div class="home-wrap">
+					<div class="wrap-img"></div>
+					<div class="wrap-title">
+						<p>满¥199</p>
+						<p>免费送装</p>
+					</div>
+				</div>
+				<div class="home-wrap">
+					<div class="wrap-img"></div>
+					<div class="wrap-title">
+						<p>延期高利补偿/确保</p>
+						<p>准时交付</p>
+					</div>
+				</div>
+				<div class="home-wrap">
+					<div class="wrap-img"></div>
+					<div class="wrap-title">
+						<p>价格保障/变动返差价</p>
+						<p>7日保价</p>
+					</div>
+				</div>
+				<div class="home-wrap">
+					<div class="wrap-img"></div>
+					<div class="wrap-title">
+						<p>三年质保</p>
+						<p>7日退换</p>
 					</div>
 				</div>
 			</div>
@@ -66,14 +104,59 @@
 	/* 信息 */
 	.storeinfo {
 		width: 100%;
-		height: 210px;
+		height: 300px;
 		margin: 15px 0px;
-		background-color: #13CE66;
+		/* background-color: #13CE66; */
+		background-image: url(https://img.zaozuo.com/51243d23e262cc17888c60504736a270);
 	}
 	.info-context {
 		margin: 18px auto 30px;
-		height: auto;
-		background-color: #0000FF;
+		height: 297px;
+		/* background-color: #0000FF; */
+		/* border:1px solid black; */
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.info-context .home-wrap{
+		width: 200px;
+		height: 150px;
+		/* border:1px solid white; */
+		
+	}
+	.home-wrap .wrap-img{
+		width: 64px;
+		height: 64px;
+		/* border:1px solid white; */
+		margin: 0 auto;
+		background-image: url(https://css.zaozuo.com/static/imgs/icon-50-aboutzz-second_d78fb26.png);
+		background-repeat: no-repeat;
+		background-position: 0 0; 
+	}
+	.home-wrap:nth-of-type(2) .wrap-img{
+	    background-position: -62px 0; 
+	}
+	.home-wrap:nth-of-type(3) .wrap-img{
+	    background-position: -128px 0; 
+	}
+	.home-wrap:nth-of-type(4) .wrap-img{
+	    background-position: -192px 0; 
+	}
+	.home-wrap:nth-of-type(5) .wrap-img{
+	    background-position: -254px 0; 
+	}
+	.home-wrap:nth-of-type(6) .wrap-img{
+	    background-position: -320px 0; 
+	}
+	.wrap-title p:nth-of-type(1){
+		margin-top: 6px;
+		color: aliceblue;
+	}
+	.wrap-title p:nth-of-type(2){
+		margin-top: 10px;
+		color: aliceblue;
+		font-size: 26px;
+		font-weight: 400;
 	}
 	/* 商品分类展示区 */
 	#displayarea {

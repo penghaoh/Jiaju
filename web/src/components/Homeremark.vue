@@ -33,9 +33,18 @@
 					{imgsrc:'https://img.zaozuo.com/8a2e94cf4fb9fce10a1089754708f0d2@!small',
 					imgicon:'https://img.zaozuo.com/4ed4f1a084647f44adb031a1b53a168b@!small',
 					desc:'沙发用料做工都很好，设计也是我想要的风格，也懒的去市场看，直接造作下单，物流很快，还直接送入户'},
-					{imgsrc:'https://img.zaozuo.com/8a2e94cf4fb9fce10a1089754708f0d2@!small',
-					imgicon:'https://img.zaozuo.com/4ed4f1a084647f44adb031a1b53a168b@!small',
-					desc:'沙发用料做工都很好，设计也是我想要的风格，也懒的去市场看，直接造作下单，物流很快，还直接送入户'}
+					{imgsrc:'https://img.zaozuo.com/u/77016/abbe7938b74908931a5735ef8061dbf3@!small',
+					imgicon:'https://img.zaozuo.com/221527e5727e8f918c622a4b8b073856@!small',
+					desc:'因为家里是北欧风格的装修，所以在挑选时，特地选择了最百搭的白色，用来做书桌，很有设计感。'},
+					{imgsrc:'https://img.zaozuo.com/dca34e278216ffdf114961e2989a6c5a@!small',
+					imgicon:'https://img.zaozuo.com/d4c03576ebe36c9d2d260150b4c5bc80@!small',
+					desc:'简洁，大方，百搭，我喜欢的风格，还没有入住，简单放点餐具就那么美，期待以后可以搭配我美美的餐具过好每一天'},
+					{imgsrc:'https://img.zaozuo.com/u/135240/5a4efa5eebc8b530f619aeb4da1690ca@!small',
+					imgicon:'https://img.zaozuo.com/788a83e354b27051be01b54b72f2d6bf@!small',
+					desc:'黑色光龙，柔和亮度也够，无论是晚上的氛围还是聚餐时的亮度，都很不错。后来陆续又收了好几件东西'},
+					{imgsrc:'https://img.zaozuo.com/u/123619/11ee901412e437b8636854dc2c070142@!small',
+					imgicon:'https://img.zaozuo.com/e2afb9586fa9974bdf1aa716efa4835a@!small',
+					desc:'超爱的圆周率花瓶，放哪里都超美。随便插枝花进去就很搭了，好喜欢，等下再收别的颜色。'}
 				]
 				
 			};

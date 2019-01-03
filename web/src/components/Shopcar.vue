@@ -46,7 +46,6 @@
 import axios from 'axios';
 import Top from "./Top";
 import Footer from "./Footer";
-import Wares from './Wares';
 export default {
   name: "Shopcar",
   data() {
@@ -58,8 +57,7 @@ export default {
   },
   components: {
     'top': Top,
-    'myfooter': Footer,
-    'wares':Wares
+    'myfooter': Footer
   },
   methods: {
      handleChange(value) {
