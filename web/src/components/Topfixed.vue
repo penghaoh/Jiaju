@@ -5,6 +5,9 @@
 		<div id="nav-fixed" style="display: none;" >
 			<router-link v-for='(item,index) in navwrapList' :to="{path:item.tourl,query:{typeid:index}}" :key="index">{{item.text}}</router-link>
 		</div>
+		<div class="login-name">
+			<p>亲爱的：<span>{{name}}</span> 你好。</p>
+		</div>
 		<div class="info-fixed">
 			<router-link v-for='(item,index) in linkList' :to="item.to" :key='index'>{{item.text}}</router-link>
 		</div>
@@ -47,6 +50,7 @@
 		data() {
 			return {
 				flag: false,
+				name:sessionStorage.getItem('name'),
 				navwrapList: [
 					{text: '首页',tourl: '/'},
 					{text: '沙发',tourl: '/sofa'},
@@ -213,10 +217,10 @@
 	.list-select ul{
 		width: 120px;
 		height: 187px;
-		border:1px solid black;
+		/* border:1px solid black; */
 		position: absolute;
 		top: 37px;
-		right: -27px;
+		right: 27px;
 		z-index: 9999;
 		
 		/* display: none; */
@@ -236,5 +240,11 @@
 		height: 30px;
 		border-bottom: #313131 1px solid;
 		line-height: 30px;
+	}
+	.login-name {
+		position: absolute;
+		top: 0;
+		right: 316px;
+		opacity: 0.8;
 	}
 </style>

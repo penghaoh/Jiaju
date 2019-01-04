@@ -58,7 +58,7 @@ export default {
   },
   methods: {
      handleChange(value) {
-      console.log(value);
+      console.log(value)
     //   this.prices = this.mydata.price * this.num1;
     },
     remove(proid){
@@ -70,7 +70,7 @@ export default {
 						}
 					}).then(response => {
 						console.log("get发送Ajax请求成功", response.data);
-                       
+							window.location.reload()
 					}).catch(response=> {
 						console.log("get发送Ajax请求失败",response);
 					})
@@ -94,7 +94,7 @@ export default {
 						}
 					}).then(response => {
 						console.log("get发送Ajax请求成功", response.data);
-                        this.mydata = response.data;
+						this.mydata = response.data;
 					}).catch(response=> {
 						console.log("get发送Ajax请求失败",response);
 					})
