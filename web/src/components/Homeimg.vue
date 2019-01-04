@@ -59,7 +59,7 @@
 	.imgcontainer .rightimg>a:nth-of-type(3)>img {
 		display: block;
 		width: 498px;
-		height: 168px;
+		height: 164px;
 	}
 	.imgcontainer .rightimg>a:nth-of-type(3) {
 		margin: 8px 0px 0px 7px;

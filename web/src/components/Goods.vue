@@ -26,11 +26,11 @@ import axios from 'axios'
 				console.log('--------------------',this.typeid);
 				axios.get('http://localhost:9999/selectpros', {
               params: {
-              typeid: this.typeid
-                  }
+											typeid: this.typeid
+              }
           })
           .then(response => {
-            console.log("get发送Ajax请求成功", response.data);
+            // console.log("get发送Ajax请求成功", response.data);
             this.proList = response.data;
           })
           .catch(response => {
@@ -38,11 +38,12 @@ import axios from 'axios'
           });
 			}
 		},
-	updated: function() {
-			// (this.$route.query.typeid == undefined)? this.typeid=0 : this.typeid=this.$route.query.typeid;
-			this.typeid=this.$route.query.typeid
-			
-			}
+		created: function() {
+				this.typeid=this.$route.query.typeid
+		},
+		beforeUpdate: function() {
+				this.typeid=this.$route.query.typeid
+		}
 		
 	}
 </script>

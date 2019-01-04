@@ -45,15 +45,13 @@
 				var arr = [];
 			
 			if(this.title == 'Z Signature 定义作品集'){
-				console.log('qqq')
 				for(var i = 0;i<response.data.length;i++){
 					if(response.data[i].defineid == 2){
 						arr.push(response.data[i])
 					}
 				}
-				console.log(arr)
+				// console.log(arr)
 				 this.proList = arr;
-				// return arr;
 			}else{
 				for(var i = 0;i<response.data.length;i++){
 					if(response.data[i].defineid == 1){

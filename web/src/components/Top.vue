@@ -198,8 +198,8 @@ import Topfixed from './Topfixed';
 		height: 187px;
 		border:1px solid black;
 		position: absolute;
-		top: 37px;
-        right: 78px;
+		top: 30px;
+        right: -27px;
 		z-index: 9999;
 		
 		/* display: none; */
